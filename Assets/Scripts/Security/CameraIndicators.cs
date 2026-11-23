@@ -31,6 +31,7 @@ public class CameraIndicators : MonoBehaviour
 
     private VisionSensor sensor;
     private SpriteRenderer led;
+    private AudioSource hum;
 
     private void Awake()
     {
@@ -43,6 +44,20 @@ public class CameraIndicators : MonoBehaviour
     {
         // During the alarm the light stays on. Repeat(t, 1) counts from 0 to 1 again and again.
         led.enabled = sensor.IsAlarmed || Mathf.Repeat(Time.time * blinkRate, 1f) < blinkOnPart;
+    }
+
+    /// <summary>
+    /// The camera loses its power: it stops looking and turning, its cone of light and its red light go dark,
+    /// and its hum stops. The power outage event calls this.
+    /// </summary>
+    public void TurnOff()
+    {
+        sensor.enabled = false;
+        GetComponent<CameraSweep>().enabled = false;
+        GetComponentInChildren<VisionConeMesh>().gameObject.SetActive(false);
+        led.enabled = false;
+        hum.Stop();
+        enabled = false; // Update would turn the red light back on.
     }
 
     private void CreateLed()
@@ -60,7 +75,7 @@ public class CameraIndicators : MonoBehaviour
     private void CreateHum()
     {
         // A 3D sound: it gets quieter with distance.
-        AudioSource hum = gameObject.AddComponent<AudioSource>();
+        hum = gameObject.AddComponent<AudioSource>();
         hum.clip = Resources.Load<AudioClip>("Audio/CameraHum");
         hum.loop = true;
         hum.spatialBlend = 1f;

@@ -21,6 +21,9 @@ public class DifficultyManager : MonoBehaviour
     [Tooltip("Used only when PlayerPrefs has no saved choice. Set in the Inspector to the Medium asset")]
     [SerializeField] private DifficultyProfile defaultProfile;
 
+    [Tooltip("The live config. Its numbers replace the profile's when the player picks a level. Optional")]
+    [SerializeField] private LiveConfigLoader liveConfig;
+
     [Tooltip("Raised after Current is set, so listeners can read the profile and initialize themselves")]
     [SerializeField] private GameEvent profileLoaded;
 
@@ -92,6 +95,20 @@ public class DifficultyManager : MonoBehaviour
     }
 
     private DifficultyProfile LoadProfile()
+    {
+        DifficultyProfile profile = BuiltInProfile();
+        if (liveConfig == null)
+        {
+            return profile;
+        }
+
+        // A copy, so the live numbers never get written into the asset on disk.
+        profile = Instantiate(profile);
+        profile.UseLiveNumbers(liveConfig.Config.NumbersFor(profile.Difficulty));
+        return profile;
+    }
+
+    private DifficultyProfile BuiltInProfile()
     {
         string saved = PlayerPrefs.GetString(DifficultyPrefsKey, string.Empty);
         if (saved == Difficulty.Easy.ToString())

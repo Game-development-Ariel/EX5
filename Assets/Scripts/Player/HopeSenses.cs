@@ -29,6 +29,9 @@ public class HopeSenses : MonoBehaviour
     // 1 right after hope is gained, then fades to 0. It makes the light flare, so the moment is felt.
     private float surge;
 
+    /// <summary>Multiplies the light of the whole tunnel. A live event sets it: during a power outage the tunnel is darker.</summary>
+    public float TunnelLightFactor { get; set; } = 1f;
+
     /// <summary>From how far the hero hears steps now, in tiles.</summary>
     public float HearingRange => Mathf.Lerp(effects.hearingRange.x, effects.hearingRange.y, strength);
 
@@ -68,7 +71,7 @@ public class HopeSenses : MonoBehaviour
         movement.SpeedFactor = Mathf.Lerp(effects.speedFactor.x, effects.speedFactor.y, strength);
         eyes.pointLightOuterRadius = Mathf.Lerp(effects.sightRadius.x, effects.sightRadius.y, strength) + surge * effects.surgeRadius;
         eyes.intensity = Mathf.Lerp(effects.sightBrightness.x, effects.sightBrightness.y, strength) + surge * effects.surgeBrightness;
-        tunnelLight.intensity = Mathf.Lerp(effects.tunnelBrightness.x, effects.tunnelBrightness.y, strength);
+        tunnelLight.intensity = Mathf.Lerp(effects.tunnelBrightness.x, effects.tunnelBrightness.y, strength) * TunnelLightFactor;
     }
 
     private void OnHopeChanged(int newHope)

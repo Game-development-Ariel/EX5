@@ -19,6 +19,7 @@
 | `section-3-options` | תוכן אופציונלי, נגישות, עוצמות תוכן, משימות, סיום |
 | `master-plan-6-1` | תיקוני תשתית: מנעול תנועה עם סיבות, הרמת אירוע שלא נופלת בגלל מאזין אחד |
 | `playable-game` | פרויקט המשחק עצמו, והחיבור של כל הרכיבים האלה לסצנה כך שרואים אותם עובדים |
+| `live-ops` | סעיף 10: טעינה דינמית של קונפיגורציה מ-GitHub, ואירוע חי לדוגמה (הפסקת חשמל) |
 
 ## הרכיבים הדרמטיים במשחק
 
@@ -98,6 +99,21 @@
 | [DevOverlay](Assets/Scripts/UI/DevOverlay.cs) | דף הבדיקה (F3) |
 | [DramaSetup](Assets/Scripts/Editor/DramaSetup.cs) | כלי העורך שמחבר את כל הרכיבים לסצנה: Tools > Tunnel > 4 Setup Dramatic Elements. רץ גם בתוך Tools > Rebuild Scene |
 
+### סעיף 10, ניהול חי (Live Ops)
+
+המשחק מוריד בתחילת כל הרצה את הקובץ [live-ops/live-config.json](live-ops/live-config.json) מהענף `main` ב-GitHub. משנים את הקובץ שם, ובהרצה הבאה המשחק מתנהג אחרת, בלי לבנות גרסה חדשה. בלי רשת המשחק רץ כרגיל. ההסבר על כל שדה ואיך מפעילים את האירוע: [live-ops/README.md](live-ops/README.md).
+
+| מחלקה | מה היא עושה |
+|---|---|
+| [LiveConfig](Assets/Scripts/LiveOps/LiveConfig.cs) | כל מה שהמשחק קורא מהקובץ. השדות שלה הם המפתחות של ה-JSON |
+| [LiveDifficultyNumbers](Assets/Scripts/LiveOps/LiveDifficultyNumbers.cs) | שלושת המספרים של רמת קושי שהקובץ יכול לדרוס. `-1` אומר להשאיר |
+| [LivePowerOutage](Assets/Scripts/LiveOps/LivePowerOutage.cs) | ההגדרות של האירוע החי, והשאלה "האם הוא רץ עכשיו" לפי התאריכים |
+| [LiveConfigLoader](Assets/Scripts/LiveOps/LiveConfigLoader.cs) | מוריד את הקובץ (עד 5 שניות) ומרים את LiveConfigLoaded, גם אם ההורדה נכשלה |
+| [PowerOutage](Assets/Scripts/LiveOps/PowerOutage.cs) | האירוע עצמו, הפסקת חשמל: הנורות כבויות והמצלמות לא רואות, אבל המנהרה חשוכה יותר והשומר ממהר |
+| [LiveOpsSetup](Assets/Scripts/Editor/LiveOpsSetup.cs) | כלי העורך שמחבר את שני הרכיבים לסצנה. DramaSetup קורא לו בסוף |
+
+הסדר בזמן ריצה: LiveConfigLoader מוריד את הקובץ ומרים את LiveConfigLoaded. StartMenu מחכה לאירוע הזה לפני שהוא מציע את רמות הקושי, ו-DifficultyManager מעתיק את הפרופיל שנבחר ושם בו את המספרים מהקובץ (`DifficultyProfile.UseLiveNumbers`). PowerOutage מאזין לאותו אירוע, ואם האירוע החי רץ עכשיו הוא מכבה את החשמל: `CameraIndicators.TurnOff`, ‏`HopeSenses.TunnelLightFactor`, ‏`GuardPatrol.AlertFactor`, ואת שורת הפתיחה הוא שולח באירוע OpeningLineChanged (קוד המשחק לא מכיר את הממשק).
+
 ### האירועים החדשים
 
 | אירוע | מי מרים | מי מאזין |
@@ -112,6 +128,8 @@
 | ScriptedBeatStarted, ScriptedBeatEnded | CalmSignals | SlowMomentsDirector, DifficultyModulator |
 | SoundCueRaised | VisualCueForSound | VisualCueOverlay |
 | SubtitleRequested | BodyCaptions | SubtitleManager |
+| LiveConfigLoaded | LiveConfigLoader | StartMenu, PowerOutage |
+| OpeningLineChanged (עם טקסט) | PowerOutage | OpeningGate, שמעביר את השורה ל-TitleCard |
 
 שני אירועים נוספים שייכים לנכס שמרים אותם ונמצאים לידו ולא בתיקיית האירועים: `Accessibility/SettingsChanged` (של AccessibilitySettings) ו-`Intensity/ModeChanged` (של ContentIntensity).
 
@@ -175,7 +193,7 @@ Assets/
 │   ├── Level/      HintZone, MemoryZone, QuietPlace, ImpactNoise, ImpactSounds, NoiseWarning, IPushable
 │   ├── Game/       TunnelRound, RoundStats, LevelFreeze, TunnelLevelSettings, PlayerMovementLock
 │   ├── Events/     GameEvent, TextEvent   (ScriptableObject), SafeEventRaise
-│   ├── Difficulty/ Attention/ Accessibility/ Intensity/ Optional/ Missions/ Ending/
+│   ├── Difficulty/ Attention/ Accessibility/ Intensity/ Optional/ Missions/ Ending/ LiveOps/
 │   │               the dramatic elements of assignment 5 (see the tables above)
 │   ├── UI/         HUD: ScreenVignette, HopeBar, WaterIndicator, ObjectiveThought, CaptureBlackout
 │   │               HintToast, MemoryCaption, TitleCard, EndScreen, ObjectiveMarker, Minimap, MinimapToggle,

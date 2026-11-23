@@ -28,6 +28,8 @@ public class DevOverlay : MonoBehaviour
     [SerializeField] private DifficultyModulator modulator;
     [SerializeField] private SlowMomentsDirector calm;
     [SerializeField] private AttentionDirector attention;
+    [SerializeField] private LiveConfigLoader liveConfig;
+    [SerializeField] private PowerOutage powerOutage;
 
     [Tooltip("Shows and hides the page. Default: the keyboard F3 key")]
     [SerializeField]
@@ -103,6 +105,8 @@ public class DevOverlay : MonoBehaviour
             }
             lines.AppendLine();
         }
+
+        lines.AppendLine($" live config: {(liveConfig.CameFromTheFile ? "from the file, version " + liveConfig.Config.version : "not loaded")}   power outage: {powerOutage.IsOn}");
 
         AccessibilitySettings s = AccessibilitySettings.Current;
         lines.AppendLine($" subtitles {s.SubtitlesEnabled}  arrows {s.VisualCuesForSound}  contrast {s.HighContrast}  shapes {s.ColorblindFriendly}");

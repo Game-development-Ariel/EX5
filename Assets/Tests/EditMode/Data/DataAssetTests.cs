@@ -16,7 +16,7 @@ public class DataAssetTests
         "PlayerCaught", "BottlePicked", "BottleDropped", "BottleDelivered", "OpeningFinished", "LevelWon", "LevelLost",
         // Assignment 5: the start of the game, the difficulty, and the calm of the level.
         "WarningAccepted", "WarningDeclined", "StartChosen", "SkipOpening", "ProfileLoaded",
-        "GuardClose", "GuardClear", "ScriptedBeatStarted", "ScriptedBeatEnded",
+        "GuardClose", "GuardClear", "ScriptedBeatStarted", "ScriptedBeatEnded", "LiveConfigLoaded",
     };
 
     // Events of assignment 5 that carry their own data, each one a type of its own.
@@ -26,7 +26,7 @@ public class DataAssetTests
         "SoundCueRaised", "SubtitleRequested",
     };
 
-    private static readonly string[] TextEventNames = { "HintRequested", "MemoryFound" };
+    private static readonly string[] TextEventNames = { "HintRequested", "MemoryFound", "OpeningLineChanged" };
 
     private static readonly string[] VisionAssets = { "SecurityCameraVision", "RoomCameraVision", "GuardVision" };
 

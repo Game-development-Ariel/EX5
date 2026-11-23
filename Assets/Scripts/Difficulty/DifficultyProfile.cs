@@ -128,6 +128,26 @@ public class DifficultyProfile : ScriptableObject, IDifficultyProfile
 
     // ------------------------------------------------------------------------
 
+    /// <summary>
+    /// Replaces the numbers the live config sets, and keeps the rest. Called on the copy of the profile
+    /// that the level plays with, never on the asset.
+    /// </summary>
+    public void UseLiveNumbers(LiveDifficultyNumbers live)
+    {
+        if (live.startingHope != LiveDifficultyNumbers.NotSet)
+        {
+            startingHope = live.startingHope;
+        }
+        if (live.hopeLostWhenCaught != LiveDifficultyNumbers.NotSet)
+        {
+            hopeLostWhenCaught = live.hopeLostWhenCaught;
+        }
+        if (live.hopeNaturalDecayPerMinute >= 0f) // NotSet is negative, and a decay can't be.
+        {
+            hopeNaturalDecayPerMinute = live.hopeNaturalDecayPerMinute;
+        }
+    }
+
     public Difficulty Difficulty => difficulty;
 
     public float GuardCheckMinSeconds => guardCheckMinSeconds;

@@ -32,6 +32,9 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private ContentIntensityManager intensityManager;
     [SerializeField] private DifficultyManager difficulty;
 
+    [Tooltip("The live config. The levels are offered only after it is ready, so the chosen level gets its numbers")]
+    [SerializeField] private LiveConfigLoader liveConfig;
+
     [Header("The words")]
     [SerializeField] private string question = "How heavy are the days?";
     [SerializeField] private string[] levelNames = { "Day One", "The Tunnel", "I Lost the Festival" };
@@ -47,23 +50,28 @@ public class StartMenu : MonoBehaviour
     [Header("Listens to")]
     [SerializeField] private GameEvent warningAccepted;
     [SerializeField] private GameEvent warningDeclined;
+    [SerializeField] private GameEvent liveConfigLoaded;
 
     [Header("Raises")]
     [Tooltip("Raised after the player picked a difficulty. The opening starts on it")]
     [SerializeField] private GameEvent startChosen;
 
     private GameObject picker;
+    private bool warningDone;
+    private bool pickerShown;
 
     private void OnEnable()
     {
         warningAccepted.Subscribe(OnWarningAccepted);
         warningDeclined.Subscribe(OnWarningDeclined);
+        liveConfigLoaded.Subscribe(ShowPickerWhenReady);
     }
 
     private void OnDisable()
     {
         warningAccepted.Unsubscribe(OnWarningAccepted);
         warningDeclined.Unsubscribe(OnWarningDeclined);
+        liveConfigLoaded.Unsubscribe(ShowPickerWhenReady);
     }
 
     private void Start()
@@ -73,7 +81,8 @@ public class StartMenu : MonoBehaviour
         if (PlayerPrefs.GetInt(ContentIntensityManager.ContentWarningShownKey, 0) != 0)
         {
             warning.gameObject.SetActive(false); // Accepted in an earlier run.
-            ShowPicker();
+            warningDone = true;
+            ShowPickerWhenReady();
         }
     }
 
@@ -81,6 +90,19 @@ public class StartMenu : MonoBehaviour
     {
         intensityManager.Save(); // The warning screen changed the settings; this remembers them.
         warning.gameObject.SetActive(false);
+        warningDone = true;
+        ShowPickerWhenReady();
+    }
+
+    // The levels wait for two things: the warning is behind us, and the live config is ready
+    // (downloaded or given up on). Whichever comes last calls this and the picker shows.
+    private void ShowPickerWhenReady()
+    {
+        if (!warningDone || !liveConfig.IsReady || pickerShown)
+        {
+            return;
+        }
+        pickerShown = true;
         ShowPicker();
     }
 

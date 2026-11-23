@@ -75,6 +75,12 @@ public class TitleCard : MonoBehaviour
 
     private RectTransform canvasRect;
 
+    /// <summary>Replaces the line under the day's title. Works until the opening starts. The opening gate calls it for a live event.</summary>
+    public void SetSubtitle(string line)
+    {
+        subtitle = line;
+    }
+
     private IEnumerator Start()
     {
         Canvas canvas = UiFactory.CreateCanvas("Title Card", CanvasSortingOrder);
