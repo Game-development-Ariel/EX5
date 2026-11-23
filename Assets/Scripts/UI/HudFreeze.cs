@@ -63,6 +63,22 @@ public class HudFreeze : MonoBehaviour
     {
         lastScanTime = Time.unscaledTime;
 
+        // This game writes with the legacy UI Text, so those are checked first.
+        foreach (UnityEngine.UI.Text legacy in FindObjectsByType<UnityEngine.UI.Text>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (legacy == null || string.IsNullOrEmpty(legacy.text) || !IsBanned(legacy.text))
+            {
+                continue;
+            }
+
+            Debug.LogWarning($"HudFreeze: removed non-diegetic text '{legacy.text}' on {legacy.gameObject.name}. " +
+                             $"Section 2.3 of the dramatic-elements doc forbids this.", legacy);
+            if (disableOffenders)
+            {
+                legacy.enabled = false;
+            }
+        }
+
         TextMeshProUGUI[] labels = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (TextMeshProUGUI label in labels)
         {

@@ -60,7 +60,10 @@ public class DifficultyModulator : MonoBehaviour
 
     private Dictionary<string, float> currentModifiers;
     private ModulationMode currentMode = ModulationMode.Default;
-    private float stageStartedAt = -1f;
+    private float stageStartedAt;
+
+    // False until the first stage starts. Not "stageStartedAt < 0": a stage can start at any time, also a negative one in a test.
+    private bool stageRunning;
     private int scriptedSequencesActive;
     private float continuousDigSeconds;
     private bool isDigging;
@@ -167,7 +170,7 @@ public class DifficultyModulator : MonoBehaviour
 
     private bool IsFrozen()
     {
-        if (stageStartedAt < 0f)
+        if (!stageRunning)
         {
             return true;
         }
@@ -204,6 +207,7 @@ public class DifficultyModulator : MonoBehaviour
     private void OnStageStarted()
     {
         stageStartedAt = Time.time;
+        stageRunning = true;
         scriptedSequencesActive = 0;
         continuousDigSeconds = 0f;
         isDigging = false;

@@ -70,11 +70,11 @@ public class HopeBodyTests
         Hope hope = go.AddComponent<Hope>();
         typeof(Hope).GetField("settings", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
             .SetValue(hope, settings);
-        hope.SendMessage("Awake");
+        TestUtils.Call(hope, "Awake");
 
         ContinuousHope continuous = go.AddComponent<ContinuousHope>();
-        continuous.SendMessage("Awake");
-        continuous.SendMessage("Start");
+        TestUtils.Call(continuous, "Awake");
+        TestUtils.Call(continuous, "Start");
 
         int before = hope.Current;
         continuous.Add(0.4f);
@@ -99,11 +99,11 @@ public class HopeBodyTests
         Hope hope = go.AddComponent<Hope>();
         typeof(Hope).GetField("settings", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
             .SetValue(hope, settings);
-        hope.SendMessage("Awake");
+        TestUtils.Call(hope, "Awake");
 
         ContinuousHope continuous = go.AddComponent<ContinuousHope>();
-        continuous.SendMessage("Awake");
-        continuous.SendMessage("Start");
+        TestUtils.Call(continuous, "Awake");
+        TestUtils.Call(continuous, "Start");
 
         int before = hope.Current;
         continuous.Lose(0.9f);
@@ -127,11 +127,11 @@ public class HopeBodyTests
         Hope hope = go.AddComponent<Hope>();
         typeof(Hope).GetField("settings", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
             .SetValue(hope, settings);
-        hope.SendMessage("Awake");
+        TestUtils.Call(hope, "Awake");
 
         ContinuousHope continuous = go.AddComponent<ContinuousHope>();
-        continuous.SendMessage("Awake");
-        continuous.SendMessage("Start");
+        TestUtils.Call(continuous, "Awake");
+        TestUtils.Call(continuous, "Start");
 
         continuous.Lose(200f);
         Assert.AreEqual(0f, continuous.Value, 0.001f);
@@ -152,11 +152,11 @@ public class HopeBodyTests
         Hope hope = go.AddComponent<Hope>();
         typeof(Hope).GetField("settings", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
             .SetValue(hope, settings);
-        hope.SendMessage("Awake");
+        TestUtils.Call(hope, "Awake");
 
         ContinuousHope continuous = go.AddComponent<ContinuousHope>();
-        continuous.SendMessage("Awake");
-        continuous.SendMessage("Start");
+        TestUtils.Call(continuous, "Awake");
+        TestUtils.Call(continuous, "Start");
 
         continuous.Add(50f);
         Assert.AreEqual(ContinuousHope.FullScale, continuous.Value, 0.001f);

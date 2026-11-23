@@ -12,6 +12,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Tunnel/Accessibility Settings")]
 public class AccessibilitySettings : ScriptableObject
 {
+    /// <summary>The highest brightness floor a player can ask for. The slider goes from 0 to this.</summary>
+    public const float MaxMinimumBrightness = 0.3f;
+
     private const string PrefPrefix = "LITT.Accessibility.";
 
     private static AccessibilitySettings currentCache;
@@ -87,7 +90,7 @@ public class AccessibilitySettings : ScriptableObject
         reducedFlashing = newReducedFlashing;
         noScreenShake = newNoScreenShake;
         subtitlesEnabled = newSubtitlesEnabled;
-        minimumBrightness = Mathf.Clamp(newMinimumBrightness, 0f, 0.3f);
+        minimumBrightness = Mathf.Clamp(newMinimumBrightness, 0f, MaxMinimumBrightness);
         RaiseChanged();
     }
 
@@ -110,7 +113,7 @@ public class AccessibilitySettings : ScriptableObject
         reducedFlashing = GetBool(nameof(reducedFlashing), reducedFlashing);
         noScreenShake = GetBool(nameof(noScreenShake), noScreenShake);
         subtitlesEnabled = GetBool(nameof(subtitlesEnabled), subtitlesEnabled);
-        minimumBrightness = Mathf.Clamp(PlayerPrefs.GetFloat(PrefPrefix + nameof(minimumBrightness), minimumBrightness), 0f, 0.3f);
+        minimumBrightness = Mathf.Clamp(PlayerPrefs.GetFloat(PrefPrefix + nameof(minimumBrightness), minimumBrightness), 0f, MaxMinimumBrightness);
     }
 
     /// <summary>Writes every toggle to PlayerPrefs. Called by the manager each time a value changes.</summary>

@@ -56,8 +56,15 @@ public class SlowMomentsDirector : MonoBehaviour
 
     private void OnEnable()
     {
-        digActiveEvent.Subscribe(OnDigActive);
-        digEndedEvent.Subscribe(OnDigEnded);
+        // A level with no digging (the tutorial) leaves the two dig events empty.
+        if (digActiveEvent != null)
+        {
+            digActiveEvent.Subscribe(OnDigActive);
+        }
+        if (digEndedEvent != null)
+        {
+            digEndedEvent.Subscribe(OnDigEnded);
+        }
         guardCloseEvent.Subscribe(OnGuardClose);
         guardClearEvent.Subscribe(OnGuardClear);
         scriptedBreakingPointEvent.Subscribe(OnScriptedBeat);
@@ -66,8 +73,14 @@ public class SlowMomentsDirector : MonoBehaviour
 
     private void OnDisable()
     {
-        digActiveEvent.Unsubscribe(OnDigActive);
-        digEndedEvent.Unsubscribe(OnDigEnded);
+        if (digActiveEvent != null)
+        {
+            digActiveEvent.Unsubscribe(OnDigActive);
+        }
+        if (digEndedEvent != null)
+        {
+            digEndedEvent.Unsubscribe(OnDigEnded);
+        }
         guardCloseEvent.Unsubscribe(OnGuardClose);
         guardClearEvent.Unsubscribe(OnGuardClear);
         scriptedBreakingPointEvent.Unsubscribe(OnScriptedBeat);

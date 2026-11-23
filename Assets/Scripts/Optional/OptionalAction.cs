@@ -34,8 +34,21 @@ public class OptionalAction : MonoBehaviour
     [Tooltip("Called once, when the hold completes. Used to play the writing sound, swap the sprite and so on")]
     [SerializeField] private UnityEvent onCompleted = new UnityEvent();
 
+    [Tooltip("Raised with the texts below: the hint when the player first comes close, the thought when the action is done. Optional")]
+    [SerializeField] private TextEvent thoughtRequested;
+
+    [TextArea]
+    [SerializeField] private string hint;
+
+    [TextArea]
+    [SerializeField] private string completedThought;
+
     private float heldSeconds;
     private bool completed;
+    private bool hintShown;
+
+    // The key of this action's taps in InputMode, for players who tap instead of holding.
+    private string TapId => "optional-action:" + entryId;
 
     /// <summary>How far along the current hold is, from 0 (not holding) to 1 (done). The UI meter reads this.</summary>
     public float Progress => holdSeconds <= 0f ? 1f : Mathf.Clamp01(heldSeconds / holdSeconds);
@@ -60,13 +73,28 @@ public class OptionalAction : MonoBehaviour
         {
             return;
         }
-        if (player == null || !IsPlayerClose() || !interactAction.IsPressed())
+        if (player == null || !IsPlayerClose())
         {
-            heldSeconds = 0f; // Walking out of the radius or letting go of the key cancels the hold.
+            heldSeconds = 0f; // Walking out of the radius cancels the hold.
+            InputMode.Reset(TapId);
             return;
         }
-        heldSeconds += Time.deltaTime;
-        if (heldSeconds >= holdSeconds)
+
+        if (!hintShown && thoughtRequested != null && !string.IsNullOrEmpty(hint))
+        {
+            hintShown = true;
+            thoughtRequested.Raise(hint);
+        }
+
+        // With "tap instead of hold" every tap adds a little time. InputMode ignores taps when the setting is off.
+        if (interactAction.WasPressedThisFrame())
+        {
+            InputMode.RegisterTap(TapId);
+        }
+
+        // Letting go of the key cancels the hold.
+        heldSeconds = interactAction.IsPressed() ? heldSeconds + Time.deltaTime : 0f;
+        if (InputMode.IsHoldFulfilled(TapId, holdSeconds, heldSeconds))
         {
             Complete();
         }
@@ -74,7 +102,7 @@ public class OptionalAction : MonoBehaviour
 
     private bool IsPlayerClose()
     {
-        Vector3 offset = player.position - transform.position;
+        Vector2 offset = player.position - transform.position; // On the flat map only x and y matter.
         return offset.sqrMagnitude <= cancelRadius * cancelRadius;
     }
 
@@ -84,6 +112,10 @@ public class OptionalAction : MonoBehaviour
         if (!string.IsNullOrEmpty(entryId) && OptionalContent.Instance != null)
         {
             OptionalContent.Instance.Record(entryId);
+        }
+        if (thoughtRequested != null && !string.IsNullOrEmpty(completedThought))
+        {
+            thoughtRequested.Raise(completedThought);
         }
         onCompleted.Invoke();
     }

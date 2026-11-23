@@ -10,6 +10,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Tunnel/Ending Sequence")]
 public class EndingSequence : ScriptableObject
 {
+    // Seconds each beat of the full game's ending stays, in order.
+    private const float StarsSeconds = 6f;
+    private const float CaptureSeconds = 4f;
+    private const float ChairWeekSeconds = 5f;
+    private const float LongCountSeconds = 8f;
+    private const float ReleaseSeconds = 4f;
+    private const float NarratorFinaleSeconds = 10f;
+
     [Tooltip("The ordered beats of the ending. The director plays them one after another")]
     [SerializeField] private List<EndingBeat> beats = new List<EndingBeat>();
 
@@ -63,22 +71,22 @@ public class EndingSequence : ScriptableObject
         EndingSequence sequence = ScriptableObject.CreateInstance<EndingSequence>();
         sequence.beats.AddRange(new[]
         {
-            new EndingBeat(BeatNames.Stars, 6f,
+            new EndingBeat(BeatNames.Stars, StarsSeconds,
                 "הַבֶּט נָא הַשָּׁמַיְמָה וּסְפֹר הַכּוֹכָבִים.",
                 "Look up at the sky and count the stars."),
-            new EndingBeat(BeatNames.Capture, 4f,
+            new EndingBeat(BeatNames.Capture, CaptureSeconds,
                 "ידיים תופסות את הקרסוליים.",
                 "Hands grab his ankles."),
-            new EndingBeat(BeatNames.ChairWeek, 5f,
+            new EndingBeat(BeatNames.ChairWeek, ChairWeekSeconds,
                 "שבוע.",
                 "A week."),
-            new EndingBeat(BeatNames.LongCount, 8f,
+            new EndingBeat(BeatNames.LongCount, LongCountSeconds,
                 "יום מאה ארבעים ואחת. יום שבע מאות שלושים ושמונה.",
                 "Day 141. Day 738."),
-            new EndingBeat(BeatNames.Release, 4f,
+            new EndingBeat(BeatNames.Release, ReleaseSeconds,
                 "דלת. אור לבן.",
                 "A door. White light."),
-            new EndingBeat(BeatNames.NarratorFinale, 10f,
+            new EndingBeat(BeatNames.NarratorFinale, NarratorFinaleSeconds,
                 "וביום השבע מאות שלושים ושמונה, הבור נפתח. הוא ספר, והם היו יותר מהימים.",
                 "On the seven hundred thirty-eighth day, the pit opened. He counted, and they were more than the days."),
         });

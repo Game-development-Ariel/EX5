@@ -27,11 +27,36 @@ public class ContinuousHope : MonoBehaviour
     private void Awake()
     {
         hope = GetComponent<Hope>();
+        Value = hope.Current; // Hope sets itself in its own Awake. Start reads it again, in case Hope woke up later.
+    }
+
+    private void OnEnable()
+    {
+        hope.Changed += OnIntegerHopeChanged;
+    }
+
+    private void OnDisable()
+    {
+        hope.Changed -= OnIntegerHopeChanged;
     }
 
     private void Start()
     {
         Value = hope.Current;
+    }
+
+    // A memory or a capture changes the integer hope directly. The decimal value follows it,
+    // so the two never drift apart. A change that came from this component already matches.
+    private void OnIntegerHopeChanged(int newHope)
+    {
+        if (Mathf.Abs(Value - newHope) < 1f)
+        {
+            return; // Less than a whole point apart: the decimal value is only ahead by its fraction.
+        }
+
+        float previous = Value;
+        Value = newHope;
+        ValueChanged?.Invoke(previous, Value);
     }
 
     /// <summary>Add decimal hope. Flushes to the integer <see cref="Hope"/> when a whole point accumulates.</summary>
@@ -70,11 +95,11 @@ public class ContinuousHope : MonoBehaviour
         }
     }
 
+    // The integer hope moves only when a whole point has gathered since it last moved,
+    // so a slow decay of 0.9 changes nothing and the next 0.2 takes one point.
     private void FlushToInteger(float previous)
     {
-        int previousRounded = Mathf.RoundToInt(previous);
-        int currentRounded = Mathf.RoundToInt(Value);
-        int delta = currentRounded - previousRounded;
+        int delta = (int)(Value - hope.Current); // The cast drops the fraction, toward zero.
 
         if (delta > 0)
         {

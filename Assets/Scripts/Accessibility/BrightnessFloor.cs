@@ -12,6 +12,9 @@ using UnityEngine.Rendering.Universal;
 [RequireComponent(typeof(Volume))]
 public class BrightnessFloor : MonoBehaviour
 {
+    // How much the tunnel's light may be raised above its designed value at the highest floor.
+    private const float MaxTunnelLightBoost = 0.25f;
+
     // The minimumBrightness slider is 0..0.3. Translated to post-exposure stops it means "this
     // picture never gets more than this many stops darker than neutral". 0.3 -> -0.9 stops, giving
     // a dim but readable image even at zero hope.
@@ -52,7 +55,7 @@ public class BrightnessFloor : MonoBehaviour
         }
         if (colors != null)
         {
-            float minExposure = -MaxDarknessStops * (1f - floor / 0.3f);
+            float minExposure = -MaxDarknessStops * (1f - floor / AccessibilitySettings.MaxMinimumBrightness);
             if (colors.postExposure.value < minExposure)
             {
                 colors.postExposure.overrideState = true;
@@ -61,7 +64,7 @@ public class BrightnessFloor : MonoBehaviour
         }
         if (tunnelLight != null)
         {
-            float minIntensity = Mathf.Lerp(tunnelDesignIntensity, tunnelDesignIntensity + 0.25f, floor / 0.3f);
+            float minIntensity = Mathf.Lerp(tunnelDesignIntensity, tunnelDesignIntensity + MaxTunnelLightBoost, floor / AccessibilitySettings.MaxMinimumBrightness);
             if (tunnelLight.intensity < minIntensity)
             {
                 tunnelLight.intensity = minIntensity;

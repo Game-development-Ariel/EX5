@@ -10,10 +10,21 @@ using UnityEngine;
 /// but it does not re-raise anything or re-award hope.
 /// From design 3.3: the EndingDirector reads the recorded list to compose the end film and the journal.
 /// </summary>
+[DefaultExecutionOrder(OptionalContent.ExecutionOrder)]
 public class OptionalContent : MonoBehaviour, IOptionalRecorder
 {
+    /// <summary>Runs before the zones, the actions and the missions, so Instance is ready when they wake up.</summary>
+    public const int ExecutionOrder = -50;
+
     /// <summary>The single OptionalContent in the active scene. Null before Awake and after the scene unloads.</summary>
-    public static OptionalContent Instance { get; private set; }
+    public static OptionalContent Instance
+    {
+        // A destroyed Unity object still compares equal to null without being null. This returns a real null.
+        get => instance != null ? instance : null;
+        private set => instance = value;
+    }
+
+    private static OptionalContent instance;
 
     [Tooltip("The registry of all optional moments. Used to look up the stage and the hope reward of a recorded id")]
     [SerializeField] private OptionalRegistry registry;

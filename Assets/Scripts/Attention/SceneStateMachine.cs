@@ -25,8 +25,8 @@ public class SceneStateMachine : MonoBehaviour
     /// <summary>Raised after the state changed to the given one.</summary>
     public event Action<SceneState> StateChanged;
 
-    // Pairs of (event, handler) that OnEnable subscribed, so OnDisable can undo exactly those.
-    private readonly List<(GameEvent, Action)> subscriptions = new List<(GameEvent, Action)>();
+    // Pairs of (state, handler) that OnEnable subscribed, so OnDisable can undo exactly those.
+    private readonly List<(SceneState, Action)> subscriptions = new List<(SceneState, Action)>();
 
     private void OnEnable()
     {
@@ -39,7 +39,7 @@ public class SceneStateMachine : MonoBehaviour
             {
                 Action handler = () => GoTo(index);
                 state.OnEnter.Subscribe(handler);
-                subscriptions.Add((state.OnEnter, handler));
+                subscriptions.Add((state, handler));
             }
         }
         if (states.Count > 0)
@@ -52,9 +52,9 @@ public class SceneStateMachine : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach ((GameEvent gameEvent, Action handler) in subscriptions)
+        foreach ((SceneState state, Action handler) in subscriptions)
         {
-            gameEvent.Unsubscribe(handler);
+            state.OnEnter.Unsubscribe(handler);
         }
         subscriptions.Clear();
     }
