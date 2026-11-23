@@ -139,6 +139,15 @@
 
 הסדר בזמן ריצה: LiveConfigLoader מוריד את הקובץ ומרים את LiveConfigLoaded. StartMenu מחכה לאירוע הזה לפני שהוא מציע את רמות הקושי, ו-DifficultyManager מעתיק את הפרופיל שנבחר ושם בו את המספרים מהקובץ (`DifficultyProfile.UseLiveNumbers`). PowerOutage מאזין לאותו אירוע, ואם האירוע החי רץ עכשיו הוא מכבה את החשמל: `CameraIndicators.TurnOff`, ‏`HopeSenses.TunnelLightFactor`, ‏`GuardPatrol.AlertFactor`, ואת שורת הפתיחה הוא שולח באירוע OpeningLineChanged (קוד המשחק לא מכיר את הממשק).
 
+**איך בודקים את האירוע החי:**
+
+1. **איזה ערך משנים:** בקובץ [live-ops/live-config.json](live-ops/live-config.json), בתוך `powerOutage`, השדה `enabled`. `true` מדליק את האירוע ו-`false` מכבה אותו. התאריכים `startUtc` ו-`endUtc` צריכים לכלול את היום.
+2. **איך מפעילים:** עורכים את הקובץ ב-GitHub (העיפרון), שומרים לענף `main`, מחכים עד חמש דקות ומפעילים את המשחק מחדש (באיץ' או ב-Unity).
+3. **מה רואים במשחק כשהאירוע דלוק:** מתחת ל-"Day 1" כתוב "The lights are out. Their eyes are blind tonight.", הנורות כבויות והמנהרה חשוכה, למצלמות אין קונוס אור והן לא תופסות, והשומר מהיר יותר. מקש F3 מציג `power outage: True`.
+4. **מה רואים כשהוא כבוי:** מתחת ל-"Day 1" כתוב "The Cell", הנורות והמצלמות עובדות, ו-F3 מציג `power outage: False`.
+
+כרגע האירוע דלוק ב-`main`, מ-23.11.2026 עד 31.12.2026.
+
 ### האירועים החדשים
 
 | אירוע | מי מרים | מי מאזין |
