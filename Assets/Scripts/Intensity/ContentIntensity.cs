@@ -2,8 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// The content intensity of the game, saved as an asset so the whole project reads the same values.
-/// It holds the player's choice: Implied or Direct, whether to skip the festival opening, and whether
-/// the content warning has already been shown. Anything that needs to react to a change listens to
+/// It holds the player's choice, Implied or Direct, and whether the content warning has already been shown. Anything that needs to react to a change listens to
 /// modeChanged. The ContentIntensityManager loads and saves these values from PlayerPrefs.
 /// </summary>
 [CreateAssetMenu(menuName = "Intensity/Content Intensity")]
@@ -11,9 +10,6 @@ public class ContentIntensity : ScriptableObject
 {
     [Tooltip("The current intensity. Implied is the default: the hard moments are suggested, not shown")]
     [SerializeField] private IntensityLevel mode = IntensityLevel.Implied;
-
-    [Tooltip("When true, the festival opening is skipped and the game starts at the cell")]
-    [SerializeField] private bool skipOpening = true;
 
     [Tooltip("True after the player saw the content warning once")]
     [SerializeField] private bool contentWarningShown;
@@ -38,13 +34,6 @@ public class ContentIntensity : ScriptableObject
                 modeChanged.Raise();
             }
         }
-    }
-
-    /// <summary>When true, the festival opening is skipped and the game starts at the cell.</summary>
-    public bool SkipOpening
-    {
-        get => skipOpening;
-        set => skipOpening = value;
     }
 
     /// <summary>True after the player saw the content warning once.</summary>

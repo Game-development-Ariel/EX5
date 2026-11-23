@@ -10,10 +10,21 @@ public class MessageTests : PlayModeTest
 {
     private TextEvent textEvent;
 
+    // The opening remembers in PlayerPrefs that it was watched. The tests start from a first run and put back what was there.
+    private int savedOpeningWatched;
+
     [SetUp]
     public void SetUp()
     {
         textEvent = Track(TestData.TextEvent());
+        savedOpeningWatched = PlayerPrefs.GetInt(TitleCard.OpeningWatchedKey, 0);
+        PlayerPrefs.DeleteKey(TitleCard.OpeningWatchedKey);
+    }
+
+    [TearDown]
+    public void RestoreOpeningWatched()
+    {
+        PlayerPrefs.SetInt(TitleCard.OpeningWatchedKey, savedOpeningWatched);
     }
 
     private static Text FindText(GameObject root, string name)
@@ -180,5 +191,39 @@ public class MessageTests : PlayModeTest
         Transform keys = card.GetComponentsInChildren<RectTransform>(true).First(t => t.name == "Keys");
         Assert.IsFalse(MobileJoystick.UsesTouch);
         Assert.AreEqual(4, keys.childCount, "W A S D");
+    }
+
+    [UnityTest]
+    public IEnumerator TitleCard_FirstTime_HasNoSkip_AndRemembersItWasWatched()
+    {
+        GameEvent openingFinished = Track(TestData.Event());
+        var opened = new EventSpy(openingFinished);
+        TitleCard card = MakeFastTitleCard(openingFinished);
+        yield return null;
+
+        Assert.IsFalse(card.CanSkip, "The first time the opening must be watched");
+        card.Skip();
+        Assert.AreEqual(0, opened.Count, "Skip does nothing the first time");
+
+        yield return TestUtils.WaitUntil(() => opened.Count > 0, 10f, "the eyes to open");
+        Assert.AreEqual(1, PlayerPrefs.GetInt(TitleCard.OpeningWatchedKey, 0));
+    }
+
+    [UnityTest]
+    public IEnumerator TitleCard_SecondTime_SkipEndsTheOpeningAtOnce()
+    {
+        PlayerPrefs.SetInt(TitleCard.OpeningWatchedKey, 1);
+        GameEvent openingFinished = Track(TestData.Event());
+        var opened = new EventSpy(openingFinished);
+        TitleCard card = MakeFastTitleCard(openingFinished);
+        yield return null;
+        Assert.IsTrue(card.CanSkip, "From the second time the skip button is shown");
+
+        card.Skip();
+        card.Skip();
+
+        Assert.AreEqual(1, opened.Count, "One skip ends the opening, once");
+        yield return null;
+        Assert.IsFalse(card.GetComponentsInChildren<Canvas>().Any(c => c.name == "Title Card" || c.name == "Skip Opening"), "The opening and the skip button are gone");
     }
 }

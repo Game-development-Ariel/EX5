@@ -7,12 +7,26 @@ using UnityEngine.UI;
 /// The hero's first thoughts are written in the dark, then the day's title,
 /// and then the eyes open: two black eyelids part, close once more, and open for real.
 /// When the eyes are open it raises OpeningFinished. The game listens to it to let the player move.
+/// The first time, the opening must be watched to the end. From the second time a Skip button
+/// is shown, and pressing it ends the opening at once (design 3.3).
 /// </summary>
 [RequireComponent(typeof(HintToast))]
 public class TitleCard : MonoBehaviour
 {
     // Above the HUD and the hints, below the scene fader.
     private const int CanvasSortingOrder = 50;
+
+    // The skip button has its own canvas just above the opening, so the eyelids never cover it.
+    private const int SkipCanvasSortingOrder = CanvasSortingOrder + 1;
+
+    /// <summary>The PlayerPrefs key that remembers the opening was watched to the end once (0 or 1).</summary>
+    public const string OpeningWatchedKey = "LitT.OpeningWatched";
+
+    // The skip button sits in the bottom right corner. Its middle is this far from the corner, in UI pixels.
+    private static readonly Vector2 BottomRight = new Vector2(1f, 0f);
+    private static readonly Vector2 SkipButtonSize = new Vector2(220f, 70f);
+    private static readonly Vector2 SkipButtonFromCorner = new Vector2(150f, 70f);
+    private const int SkipButtonFontSize = 32;
 
     // Layout in UI pixels, from the middle of the screen. Up is plus, down is minus.
     private const float TextWidth = 1400f;
@@ -73,7 +87,15 @@ public class TitleCard : MonoBehaviour
     [Tooltip("The volume of the waking up sound, from 0 to 1")]
     [SerializeField] private float wakeVolume = 0.8f;
 
+    [Tooltip("The label of the skip button, shown from the second time the opening plays")]
+    [SerializeField] private string skipLabel = "Skip";
+
     private RectTransform canvasRect;
+    private GameObject skipCanvas;
+    private bool finished;
+
+    /// <summary>True while the skip button is on the screen.</summary>
+    public bool CanSkip => skipCanvas != null;
 
     /// <summary>Replaces the line under the day's title. Works until the opening starts. The opening gate calls it for a live event.</summary>
     public void SetSubtitle(string line)
@@ -81,12 +103,32 @@ public class TitleCard : MonoBehaviour
         subtitle = line;
     }
 
-    private IEnumerator Start()
+    private void Start()
     {
         Canvas canvas = UiFactory.CreateCanvas("Title Card", CanvasSortingOrder);
         canvas.transform.SetParent(transform, false);
         canvasRect = canvas.GetComponent<RectTransform>();
 
+        if (PlayerPrefs.GetInt(OpeningWatchedKey, 0) != 0)
+        {
+            CreateSkipButton();
+        }
+        StartCoroutine(Play(canvas));
+    }
+
+    /// <summary>Ends the opening at once, as if the eyes had opened. Does nothing before the skip button is shown.</summary>
+    public void Skip()
+    {
+        if (!CanSkip || finished)
+        {
+            return;
+        }
+        StopAllCoroutines(); // The fades and the eyelids stop where they are; the canvas goes away with them.
+        Finish();
+    }
+
+    private IEnumerator Play(Canvas canvas)
+    {
         Image black = UiFactory.CreateImage(canvas.transform, "Black", null, Color.black);
         UiFactory.Stretch(black.rectTransform);
         Sfx.Play("Wake", wakeVolume);
@@ -100,10 +142,34 @@ public class TitleCard : MonoBehaviour
         RectTransform bottom = CreateEyelid(canvas.transform, UiFactory.BottomCenter);
         Destroy(black.gameObject);
         yield return OpenEyes(top, bottom);
-        Destroy(canvas.gameObject);
 
+        PlayerPrefs.SetInt(OpeningWatchedKey, 1); // Watched to the end: from now on it can be skipped.
+        PlayerPrefs.Save();
+        Finish();
+    }
+
+    private void Finish()
+    {
+        finished = true;
+        Destroy(canvasRect.gameObject);
+        if (skipCanvas != null)
+        {
+            Destroy(skipCanvas);
+        }
         openingFinished.Raise();
         ShowMoveHint();
+    }
+
+    private void CreateSkipButton()
+    {
+        UiFactory.EnsureEventSystem();
+        Canvas canvas = UiFactory.CreateCanvas("Skip Opening", SkipCanvasSortingOrder);
+        canvas.transform.SetParent(transform, false);
+        skipCanvas = canvas.gameObject;
+
+        Button button = UiFactory.CreateButton(canvas.transform, skipLabel, BottomRight, SkipButtonSize, SkipButtonFontSize, Color.white);
+        ((RectTransform)button.transform).anchoredPosition = new Vector2(-SkipButtonFromCorner.x, SkipButtonFromCorner.y);
+        button.onClick.AddListener(Skip);
     }
 
     private IEnumerator WriteThoughts(Transform canvas)

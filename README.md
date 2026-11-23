@@ -25,9 +25,9 @@
 
 ### מה רואים כשמשחקים
 
-1. **אזהרת תוכן** (פעם אחת, עד שמאשרים אותה), עם אפשרות לדלג על סצנת הפתיחה.
+1. **אזהרת תוכן** (פעם אחת, עד שמאשרים אותה). בפעם הראשונה צופים בפתיחה עד הסוף, ומהפעם השנייה יש בה כפתור Skip.
 2. **בחירת קושי**: "Day One" (קל), "The Tunnel" (בינוני), "I Lost the Festival" (קשה).
-3. **השלב**: האור החם מסמן את המטרה הנוכחית (הבקבוק, ואחרי שלוקחים אותו המזרן). התקווה יורדת לאט עם הזמן. כשהיא נמוכה שומעים את הנשימה, ובייאוש את הדופק.
+3. **השלב**: האור החם מסמן את המטרה הנוכחית (הבקבוק, ואחרי שלוקחים אותו המזרן). התקווה לא יורדת עם הזמן, רק ממה שקורה. כשהיא נמוכה שומעים את הנשימה, ובייאוש את הדופק.
 4. **רגעים אופציונליים**: ליד קיר הספירה עומדים ומחזיקים E חמש שניות כדי לחרוט קו. עמידה שקטה ליד דלת התא, כשהשומר רחוק, היא רגע של התבוננות בסדק האור. גם התפילה במקום השקט נרשמת.
 5. **הסיום**: אחרי שמחזירים את הבקבוק, שורות המספר מופיעות ככתוביות, ואליהן מצטרפות שורות לפי מה שהשחקן עשה (לא נתפס, חרט קו, מצא את כל הזיכרונות).
 
@@ -49,7 +49,7 @@
 | [CaughtEvent](Assets/Scripts/Difficulty/CaughtEvent.cs), [StageStartedEvent](Assets/Scripts/Difficulty/StageStartedEvent.cs), [StageEndedEvent](Assets/Scripts/Difficulty/StageEndedEvent.cs), [HopeChangedEvent](Assets/Scripts/Difficulty/HopeChangedEvent.cs), [PlayerIdleSignal](Assets/Scripts/Difficulty/PlayerIdleSignal.cs), [QuietPlaceEnteredEvent](Assets/Scripts/Difficulty/QuietPlaceEnteredEvent.cs), [QuietPlaceExitedEvent](Assets/Scripts/Difficulty/QuietPlaceExitedEvent.cs) | האותות של ה-SkillTracker, כל אחד אירוע כנכס מסוג משלו |
 | [DigSessionEndedEvent](Assets/Scripts/Difficulty/DigSessionEndedEvent.cs), [ListenActivatedEvent](Assets/Scripts/Difficulty/ListenActivatedEvent.cs) | אותות של חפירה והקשבה. בשלב הלימוד אין חפירה והקשבה, אז הם מוכנים לשלבים הבאים ולא מחוברים כאן |
 
-מה כל רמה משנה בשלב הלימוד: התקווה ההתחלתית (70, 50, 30), מחיר ההיתפסות (5, 10, 20), הדעיכה הטבעית של התקווה (1, 2, 2 לדקה), רוחב המבט של המצלמות (שלושה רבעים, רגיל, פי אחד ורבע), קצב השומר (איטי יותר ברמה הקלה) והתקווה מזיכרון (בקשה שני שלישים). שאר המספרים בפרופיל (חפירה, פנס, יומן, מספר המצלמות, בדיקות התא) שייכים לשלבים שעוד לא נבנו.
+מה כל רמה משנה בשלב הלימוד: התקווה ההתחלתית (70, 50, 30), מחיר ההיתפסות (5, 10, 20), הדעיכה הטבעית של התקווה (0 בכל הרמות, כי לפי המסמך התקווה לא יורדת עם הזמן. אפשר להדליק אותה מ-Live Ops), רוחב המבט של המצלמות (שלושה רבעים, רגיל, פי אחד ורבע), קצב השומר (איטי יותר ברמה הקלה) והתקווה מזיכרון (בקשה שני שלישים). שאר המספרים בפרופיל (חפירה, פנס, יומן, מספר המצלמות, בדיקות התא) שייכים לשלבים שעוד לא נבנו.
 
 ### סעיף 2, זרימה: תשומת הלב והגוף
 
@@ -59,7 +59,7 @@
 | [AttentionDirector](Assets/Scripts/Attention/AttentionDirector.cs), [AttentionBeat](Assets/Scripts/Attention/AttentionBeat.cs), [AttentionPolicy](Assets/Scripts/Attention/AttentionPolicy.cs) | בכל רגע מטרה אחת מוארת. כל "פעימה" אומרת מה נדלק ומה כבה, והמדיניות מגבילה לארבעה אורות |
 | [SceneStateMachine](Assets/Scripts/Attention/SceneStateMachine.cs), [SceneState](Assets/Scripts/Attention/SceneState.cs) | מצבי הסיפור של השלב: מחפשים את המים (BottleDropped), מחזירים אותם (BottlePicked) |
 | [ContinuousHope](Assets/Scripts/Player/ContinuousHope.cs) | תקווה עשרונית לצד התקווה השלמה, כדי שדעיכה איטית תצטבר |
-| [HopeNaturalDecay](Assets/Scripts/Player/HopeNaturalDecay.cs) | הדעיכה הטבעית, בקצב של הפרופיל. נעצרת כשהשחקן לא יכול לזוז |
+| [HopeNaturalDecay](Assets/Scripts/Player/HopeNaturalDecay.cs) | דעיכה לפי הקצב של הפרופיל. הקצב 0 בכל הרמות, ונשאר כמספר ש-Live Ops יכול לשנות. נעצרת כשהשחקן לא יכול לזוז |
 | [HopeBody](Assets/Scripts/Player/HopeBody.cs), [HopeTier](Assets/Scripts/Player/HopeTier.cs) | ארבע שכבות התקווה (אמונה, רגוע, חשש, ייאוש) והקולות של הגוף: נשימה ודופק |
 | [HudFreeze](Assets/Scripts/UI/HudFreeze.cs) | שומר שלא יופיע על המסך טקסט כמו "GAME OVER" או "SCORE" |
 
@@ -79,7 +79,7 @@
 | [InputMode](Assets/Scripts/Accessibility/InputMode.cs) | הקשות במקום לחיצה ארוכה |
 | [ContentIntensity](Assets/Scripts/Intensity/ContentIntensity.cs), [IntensityLevel](Assets/Scripts/Intensity/IntensityLevel.cs), [ContentIntensityManager](Assets/Scripts/Intensity/ContentIntensityManager.cs) | עוצמת התוכן (מרומז או ישיר), ושמירתה |
 | [ContentWarningScreen](Assets/Scripts/UI/ContentWarningScreen.cs), [ContentWarningText](Assets/Scripts/Intensity/ContentWarningText.cs), [RightToLeft](Assets/Scripts/UI/RightToLeft.cs) | מסך אזהרת התוכן והטקסט שלו. RightToLeft כותב עברית נכון ברכיב Text הישן |
-| [StartMenu](Assets/Scripts/UI/StartMenu.cs), [OpeningGate](Assets/Scripts/UI/OpeningGate.cs), [OpeningSkipRouter](Assets/Scripts/Intensity/OpeningSkipRouter.cs) | המסכים שלפני המשחק, והשער שמחזיק את הפתיחה עד שהם נגמרים או מדלג עליה |
+| [StartMenu](Assets/Scripts/UI/StartMenu.cs), [OpeningGate](Assets/Scripts/UI/OpeningGate.cs) | המסכים שלפני המשחק, והשער שמחזיק את הפתיחה עד שהם נגמרים. כפתור הדילוג נמצא ב-TitleCard, מהפעם השנייה |
 | [IntensityScene](Assets/Scripts/Intensity/IntensityScene.cs), [IntensityVariant](Assets/Scripts/Intensity/IntensityVariant.cs), [IntensityAudio](Assets/Scripts/Intensity/IntensityAudio.cs), [IntensityVisibilityFilter](Assets/Scripts/Intensity/IntensityVisibilityFilter.cs) | גרסה מרומזת או ישירה של סצנה, צליל או חפץ. בשלב הלימוד אין סצנה קשה, אז הם מוכנים לשלבים הבאים |
 | [OptionalRegistry](Assets/Scripts/Optional/OptionalRegistry.cs), [OptionalEntry](Assets/Scripts/Optional/OptionalEntry.cs), [OptionalKind](Assets/Scripts/Optional/OptionalKind.cs) | הקטלוג של הרגעים האופציונליים: גילוי, ביטוי, התבוננות |
 | [OptionalContent](Assets/Scripts/Optional/OptionalContent.cs), [IOptionalRecorder](Assets/Scripts/Optional/IOptionalRecorder.cs) | זוכר אילו רגעים השחקן רשם בהרצה הזאת |
@@ -120,7 +120,6 @@
 |---|---|---|
 | WarningAccepted, WarningDeclined | ContentWarningScreen | StartMenu |
 | StartChosen | StartMenu | OpeningGate |
-| SkipOpening | OpeningSkipRouter | OpeningGate |
 | ProfileLoaded | DifficultyManager | DifficultyApplier |
 | Caught, StageStarted, StageEnded, HopeChanged, PlayerIdle | SkillSignals | SkillTracker (ו-DifficultyModulator ל-StageStarted) |
 | QuietPlaceEntered, QuietPlaceExited | QuietPlace | SkillTracker |
@@ -162,7 +161,7 @@
 * דוחפים דלת, ארגז או שק חול כשהולכים לתוכם.
 * בפינה המוארת בקיר המסדרון עומדים שלוש שניות בלי לזוז, כדי לומר פסוק.
 * **ניצחון**: מביאים את הבקבוק למזרן.
-* **הפסד**: כל היתפסות (בפנס של השומר או באור של מצלמה) מורידה 20 תקווה ומחזירה לתא. בלי תקווה היום נגמר.
+* **הפסד**: כל היתפסות (בפנס של השומר או באור של מצלמה) מורידה תקווה לפי רמת הקושי (5, 10 או 20, כמו במסמך; בלי רמה 10) ומחזירה לתא. בלי תקווה היום נגמר.
 
 ## פיסיקה
 

@@ -7,7 +7,11 @@ using UnityEngine;
 /// </summary>
 public static class DifficultyProfileFactory
 {
-    // Easy ("Day One"): wider windows, more hope, slower decay.
+    // Hope does not drop with time on any level (design, topic 4): it changes only from what happens.
+    // The decay stays in the profile as a number Live Ops can turn on for a test, without a new build.
+    private const float NoHopeDecay = 0f;
+
+    // Easy ("Day One"): wider windows, more hope.
     // Seconds between random cell checks: 70..90 (double the default on the low end).
     private const float EasyGuardCheckMin = 70f;
     private const float EasyGuardCheckMax = 90f;
@@ -19,10 +23,9 @@ public static class DifficultyProfileFactory
     private const float EasyCameraCone = 45f;
     // Three cameras per stage instead of five.
     private const int EasyCameraCount = 3;
-    // Start with 70 hope and lose only 5 on a capture, decay one point per minute.
+    // Start with 70 hope and lose only 5 on a capture.
     private const int EasyStartHope = 70;
     private const int EasyHopeLostCaught = 5;
-    private const float EasyHopeDecay = 1f;
     // Memory gives the default 15 hope on Easy.
     private const int EasyMemoryValue = 15;
     // Faster dig: 0.20 m/s. Noise reaches only the adjacent corridor.
@@ -42,7 +45,6 @@ public static class DifficultyProfileFactory
     private const int MediumCameraCount = 5;
     private const int MediumStartHope = 50;
     private const int MediumHopeLostCaught = 10;
-    private const float MediumHopeDecay = 2f;
     private const int MediumMemoryValue = 15;
     // 0.15 m/s dig, noise heard in two adjacent corridors.
     private const float MediumDigSpeed = 0.15f;
@@ -66,10 +68,9 @@ public static class DifficultyProfileFactory
     private const float HardCameraCone = 75f;
     private const int HardCameraCount = 7;
     private const float HardRotatingPeriod = 8f;
-    // Start with 30 hope, lose 20 on capture, memory gives only 10, decay 2/min as Medium.
+    // Start with 30 hope, lose 20 on capture, memory gives only 10.
     private const int HardStartHope = 30;
     private const int HardHopeLostCaught = 20;
-    private const float HardHopeDecay = 2f;
     private const int HardMemoryValue = 10;
     // Slower dig: 0.11 m/s. 20-second continuous-dig threshold brings the guard early.
     private const float HardDigSpeed = 0.11f;
@@ -96,7 +97,7 @@ public static class DifficultyProfileFactory
             listenPauseIntervalMin: HardListenPauseIntervalMin, listenPauseIntervalMax: HardListenPauseIntervalMax,
             cameraCone: EasyCameraCone, cameras: EasyCameraCount, rotatingOn: false, rotatingPeriod: HardRotatingPeriod,
             startHope: EasyStartHope, hopeLostCaught: EasyHopeLostCaught,
-            hopeDecayPerMinute: EasyHopeDecay, memoryValue: EasyMemoryValue,
+            hopeDecayPerMinute: NoHopeDecay, memoryValue: EasyMemoryValue,
             digSpeed: EasyDigSpeed, digNoiseRooms: EasyDigNoiseCorridors,
             continuousDigOn: false, continuousDigSeconds: HardContinuousDigThreshold,
             battery: EasyBattery,
@@ -118,7 +119,7 @@ public static class DifficultyProfileFactory
             listenPauseIntervalMin: HardListenPauseIntervalMin, listenPauseIntervalMax: HardListenPauseIntervalMax,
             cameraCone: MediumCameraCone, cameras: MediumCameraCount, rotatingOn: false, rotatingPeriod: HardRotatingPeriod,
             startHope: MediumStartHope, hopeLostCaught: MediumHopeLostCaught,
-            hopeDecayPerMinute: MediumHopeDecay, memoryValue: MediumMemoryValue,
+            hopeDecayPerMinute: NoHopeDecay, memoryValue: MediumMemoryValue,
             digSpeed: MediumDigSpeed, digNoiseRooms: MediumDigNoiseCorridors,
             continuousDigOn: false, continuousDigSeconds: HardContinuousDigThreshold,
             battery: MediumBattery,
@@ -143,7 +144,7 @@ public static class DifficultyProfileFactory
             cameraCone: HardCameraCone, cameras: HardCameraCount,
             rotatingOn: true, rotatingPeriod: HardRotatingPeriod,
             startHope: HardStartHope, hopeLostCaught: HardHopeLostCaught,
-            hopeDecayPerMinute: HardHopeDecay, memoryValue: HardMemoryValue,
+            hopeDecayPerMinute: NoHopeDecay, memoryValue: HardMemoryValue,
             digSpeed: HardDigSpeed, digNoiseRooms: HardDigNoiseCorridors,
             continuousDigOn: true, continuousDigSeconds: HardContinuousDigThreshold,
             battery: HardBattery,

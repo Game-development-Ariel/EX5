@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 /// <summary>
 /// The content warning that is shown the first time the game is opened. It says in Hebrew and English
-/// that the game is about captivity and war, that it was reviewed with a trauma center, and that an
-/// Implied mode is available. The player can tick "Skip opening scene", then Continue to play or
-/// Back to go to the main menu. Once accepted, the ContentIntensity remembers it was shown.
+/// what the game is about and what the player will hear. The player presses Continue to play or Back
+/// to go to the main menu. There is no skip here: the opening must be watched once (design 3.3), and
+/// the TitleCard offers the skip from the second time. Once accepted, the ContentIntensity remembers it was shown.
 /// </summary>
 public class ContentWarningScreen : MonoBehaviour
 {
@@ -27,15 +27,6 @@ public class ContentWarningScreen : MonoBehaviour
     private const int EnglishFontSize = 32;
     private const float EnglishY = -40f;
 
-    private const float ToggleY = -220f;
-    private static readonly Vector2 ToggleBoxSize = new Vector2(40f, 40f);
-    private static readonly Vector2 ToggleLabelSize = new Vector2(900f, 60f);
-    private const int ToggleFontSize = 28;
-    private const float ToggleRowHeight = 80f;
-
-    // The space between the check box and its label, in UI pixels.
-    private const float ToggleLabelGap = 16f;
-
     private static readonly Vector2 ButtonSize = new Vector2(320f, 80f);
     private const int ButtonFontSize = 36;
     private const float ButtonsY = -340f;
@@ -55,7 +46,6 @@ public class ContentWarningScreen : MonoBehaviour
     [SerializeField] private GameEvent warningDeclined;
 
     private Transform canvas;
-    private Toggle skipToggle;
 
     private void Awake()
     {
@@ -76,10 +66,6 @@ public class ContentWarningScreen : MonoBehaviour
         english.rectTransform.anchoredPosition = new Vector2(0f, EnglishY);
         english.text = text != null ? text.English : string.Empty;
 
-        skipToggle = CreateSkipToggle(canvas);
-        ContentIntensity current = Target();
-        skipToggle.isOn = current == null || current.SkipOpening;
-
         Button continueButton = UiFactory.CreateButton(canvas, text != null ? text.ContinueLabel : "Continue", UiFactory.Center, ButtonSize, ButtonFontSize, Color.white);
         ((RectTransform)continueButton.transform).anchoredPosition = new Vector2(ButtonsSpacing * 0.5f, ButtonsY);
         continueButton.onClick.AddListener(OnContinue);
@@ -89,37 +75,11 @@ public class ContentWarningScreen : MonoBehaviour
         backButton.onClick.AddListener(OnBack);
     }
 
-    private Toggle CreateSkipToggle(Transform parent)
-    {
-        var holder = new GameObject("Skip Opening Toggle", typeof(RectTransform));
-        holder.transform.SetParent(parent, false);
-        UiFactory.Place((RectTransform)holder.transform, UiFactory.Center, new Vector2(0f, ToggleY), new Vector2(TextWidth, ToggleRowHeight));
-
-        Image box = UiFactory.CreateImage(holder.transform, "Box", UiTheme.Sprite("Button"), Color.white);
-        UiFactory.Place(box.rectTransform, UiFactory.Center, new Vector2(-ToggleLabelSize.x * 0.5f, 0f), ToggleBoxSize);
-        box.raycastTarget = true;
-
-        Image check = UiFactory.CreateImage(box.transform, "Check", UiTheme.Sprite("Check"), Color.white);
-        UiFactory.Stretch(check.rectTransform);
-        check.raycastTarget = false;
-
-        Text label = UiFactory.CreateText(holder.transform, "Label", UiFactory.Center, ToggleLabelSize, ToggleFontSize, TextAnchor.MiddleLeft);
-        label.rectTransform.anchoredPosition = new Vector2(ToggleBoxSize.x + ToggleLabelGap, 0f);
-        label.text = text != null ? (RightToLeft.ForLegacyText(text.SkipOpeningHebrew, HebrewLineLength) + "  /  " + text.SkipOpeningEnglish) : string.Empty;
-
-        var toggle = holder.AddComponent<Toggle>();
-        toggle.targetGraphic = box;
-        toggle.graphic = check;
-        toggle.transition = Selectable.Transition.None;
-        return toggle;
-    }
-
     private void OnContinue()
     {
         ContentIntensity current = Target();
         if (current != null)
         {
-            current.SkipOpening = skipToggle != null && skipToggle.isOn;
             current.ContentWarningShown = true;
         }
         if (warningAccepted != null)

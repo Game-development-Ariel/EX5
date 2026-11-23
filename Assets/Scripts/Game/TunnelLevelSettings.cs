@@ -9,11 +9,11 @@ public class TunnelLevelSettings : ScriptableObject
     [Min(1)]
     public int maxHope = 100;
 
-    [Tooltip("Hope at the start. The hero wakes up weak, so memories have room to fill it")]
+    [Tooltip("Hope at the start when no difficulty level was chosen. The hero wakes up weak")]
     public int startHope = 30;
 
-    [Tooltip("Hope lost every time the player is caught. At 0 hope the level is lost")]
-    public int hopeLostWhenCaught = 20;
+    [Tooltip("Hope lost every time the player is caught when no difficulty level was chosen (the design's 10). At 0 hope the level is lost")]
+    public int hopeLostWhenCaught = 10;
 
     [Tooltip("Seconds the player can't move after being caught. The screen is dark for this time, and the hero breathes")]
     [Min(0f)]

@@ -3,8 +3,8 @@ using NUnit.Framework;
 using UnityEngine;
 
 /// <summary>
-/// Tests for IntensityScene: picks the right variant for the current mode, honors skipOpening on
-/// the opening scene, and lets its instances be destroyed with the scene.
+/// Tests for IntensityScene: picks the right variant for the current mode, and lets its instances
+/// be destroyed with the scene.
 /// </summary>
 public class IntensitySceneTests : EditModeTest
 {
@@ -58,69 +58,6 @@ public class IntensitySceneTests : EditModeTest
         TestUtils.Call(scene, "Awake");
 
         Assert.AreEqual(0, scene.Instances.Count);
-    }
-
-    [Test]
-    public void SkipOpening_OnOpeningScene_RaisesSkipAndSpawnsNothing()
-    {
-        intensity.Mode = IntensityLevel.Implied;
-        intensity.SkipOpening = true;
-        GameObject implied = Make("Implied Prefab");
-        GameObject direct = Make("Direct Prefab");
-        GameEvent skipped = Track(TestData.Event("SkippedOpening"));
-        var spy = new EventSpy(skipped);
-        IntensityScene scene = MakeScene(implied, direct);
-        TestUtils.Set(scene, "isOpening", true);
-        TestUtils.Set(scene, "skippedOpeningEvent", skipped);
-
-        TestUtils.Call(scene, "Awake");
-
-        Assert.AreEqual(1, spy.Count);
-        Assert.IsTrue(scene.SkippedOpening);
-        Assert.AreEqual(0, scene.Instances.Count);
-    }
-
-    [Test]
-    public void SkipOpeningFalse_InImplied_StillSpawnsTheOpening()
-    {
-        // The design rule: Implied + skipOpening=false still shows the opening (in Implied form).
-        intensity.Mode = IntensityLevel.Implied;
-        intensity.SkipOpening = false;
-        GameObject implied = Make("Implied Prefab");
-        GameObject direct = Make("Direct Prefab");
-        GameEvent skipped = Track(TestData.Event("SkippedOpening"));
-        var spy = new EventSpy(skipped);
-        IntensityScene scene = MakeScene(implied, direct);
-        TestUtils.Set(scene, "isOpening", true);
-        TestUtils.Set(scene, "skippedOpeningEvent", skipped);
-
-        TestUtils.Call(scene, "Awake");
-
-        Assert.AreEqual(0, spy.Count);
-        Assert.IsFalse(scene.SkippedOpening);
-        Assert.AreEqual(1, scene.Instances.Count);
-        Assert.IsTrue(scene.Instances[0].name.StartsWith("Implied Prefab"));
-        Track(scene.Instances[0]);
-    }
-
-    [Test]
-    public void NonOpeningScene_IgnoresSkipOpening()
-    {
-        intensity.Mode = IntensityLevel.Implied;
-        intensity.SkipOpening = true;
-        GameObject implied = Make("Implied Prefab");
-        GameObject direct = Make("Direct Prefab");
-        GameEvent skipped = Track(TestData.Event("SkippedOpening"));
-        var spy = new EventSpy(skipped);
-        IntensityScene scene = MakeScene(implied, direct);
-        TestUtils.Set(scene, "isOpening", false);
-        TestUtils.Set(scene, "skippedOpeningEvent", skipped);
-
-        TestUtils.Call(scene, "Awake");
-
-        Assert.AreEqual(0, spy.Count);
-        Assert.AreEqual(1, scene.Instances.Count);
-        Track(scene.Instances[0]);
     }
 
     [Test]

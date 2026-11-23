@@ -29,7 +29,7 @@ MonoBehaviour:
   rotatingCameraPeriodSeconds: 8
   startingHope: 30
   hopeLostWhenCaught: 20
-  hopeNaturalDecayPerMinute: 2
+  hopeNaturalDecayPerMinute: 0
   memoryHopeValue: 10
   digMetersPerSecond: 0.11
   digNoiseCorridors: 2
