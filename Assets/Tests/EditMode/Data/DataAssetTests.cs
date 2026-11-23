@@ -15,7 +15,7 @@ public class DataAssetTests
     {
         "PlayerCaught", "BottlePicked", "BottleDropped", "BottleDelivered", "OpeningFinished", "LevelWon", "LevelLost",
         // Assignment 5: the start of the game, the difficulty, and the calm of the level.
-        "WarningAccepted", "WarningDeclined", "StartChosen", "SkipOpening", "ProfileLoaded",
+        "WarningAccepted", "WarningDeclined", "StartChosen", "ProfileLoaded",
         "GuardClose", "GuardClear", "ScriptedBeatStarted", "ScriptedBeatEnded", "LiveConfigLoaded",
     };
 
@@ -100,7 +100,7 @@ public class DataAssetTests
     {
         var settings = Load<TunnelLevelSettings>("TutorialLevelSettings");
         Assert.AreEqual(30, settings.startHope, "The README says the hero starts with 30 hope");
-        Assert.AreEqual(20, settings.hopeLostWhenCaught, "The README says every capture costs 20 hope");
+        Assert.AreEqual(10, settings.hopeLostWhenCaught, "The README says a capture costs 10 hope when no level was chosen");
     }
 
     [TestCaseSource(nameof(VisionAssets))]

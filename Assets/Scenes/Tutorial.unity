@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21748aaaf19a5414690c2320de12565b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightInTheTunnel::HopeNaturalDecay
-  defaultRatePerMinute: 2
+  defaultRatePerMinute: 0
   difficultyParameterName: HopeNaturalDecayPerMinute
 --- !u!1 &160600756
 GameObject:
@@ -28040,7 +28040,6 @@ GameObject:
   - component: {fileID: 1505574836}
   - component: {fileID: 1505574832}
   - component: {fileID: 1505574835}
-  - component: {fileID: 1505574834}
   - component: {fileID: 1505574833}
   m_Layer: 0
   m_Name: Start Menu
@@ -28075,25 +28074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LightInTheTunnel::OpeningGate
   titleCard: {fileID: 956986038}
-  skipRouter: {fileID: 1505574834}
   startChosen: {fileID: 11400000, guid: 8a6d20433bba602479a2c97c10a70dbc, type: 2}
-  skipOpening: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
   openingLineChanged: {fileID: 11400000, guid: ecbae89f4c945634fb580901c08716b7, type: 2}
-  openingFinished: {fileID: 11400000, guid: 434fa2875b7cd4eb19e755c72c9574a1, type: 2}
---- !u!114 &1505574834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505574831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95aea01df910fe143b3585e03228899e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OpeningSkipRouter
-  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
-  skipToTutorialStartEvent: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
 --- !u!114 &1505574835
 MonoBehaviour:
   m_ObjectHideFlags: 0

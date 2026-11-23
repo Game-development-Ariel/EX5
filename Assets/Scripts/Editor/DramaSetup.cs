@@ -455,15 +455,8 @@ public static class DramaSetup
 
     private static ContentIntensity Intensity()
     {
-        string path = DataFolder + "Intensity/ContentIntensity.asset";
-        bool isNew = !System.IO.File.Exists(path);
-        ContentIntensity intensity = SetupTools.Asset<ContentIntensity>(path);
+        ContentIntensity intensity = SetupTools.Asset<ContentIntensity>(DataFolder + "Intensity/ContentIntensity.asset");
         SetupTools.SetField(intensity, "modeChanged", SetupTools.Asset<GameEvent>(DataFolder + "Intensity/ModeChanged.asset")); // Like the settings' own event.
-        if (isNew)
-        {
-            // The tutorial's opening is the hero waking up, with nothing hard to see, so it plays unless the player skips it.
-            SetBool(intensity, "skipOpening", false);
-        }
         return intensity;
     }
 
@@ -493,17 +486,9 @@ public static class DramaSetup
         SetupTools.SetField(menu, "warningDeclined", warningDeclined);
         SetupTools.SetField(menu, "startChosen", startChosen);
 
-        OpeningSkipRouter router = holder.AddComponent<OpeningSkipRouter>();
-        SetupTools.SetField(router, "intensity", intensity);
-        GameEvent skipOpening = Event("SkipOpening");
-        SetupTools.SetField(router, "skipToTutorialStartEvent", skipOpening);
-
         OpeningGate gate = holder.AddComponent<OpeningGate>();
         SetupTools.SetField(gate, "titleCard", Object.FindAnyObjectByType<TitleCard>());
-        SetupTools.SetField(gate, "skipRouter", router);
         SetupTools.SetField(gate, "startChosen", startChosen);
-        SetupTools.SetField(gate, "skipOpening", skipOpening);
-        SetupTools.SetField(gate, "openingFinished", TunnelAssets.OpeningFinished);
         return manager;
     }
 

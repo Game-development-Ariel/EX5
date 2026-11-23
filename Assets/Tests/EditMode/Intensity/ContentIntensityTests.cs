@@ -3,8 +3,8 @@ using UnityEngine;
 
 /// <summary>
 /// Tests for the content intensity data asset, its manager (load and save from PlayerPrefs),
-/// and the OpeningSkipRouter. Also a small check that the IntensityScene picks the right variant.
-/// Every test clears the three PlayerPrefs keys in TearDown so one test cannot leak into another.
+/// and a small check that the IntensityScene picks the right variant.
+/// Every test clears the two PlayerPrefs keys in TearDown so one test cannot leak into another.
 /// </summary>
 public class ContentIntensityTests : EditModeTest
 {
@@ -29,7 +29,6 @@ public class ContentIntensityTests : EditModeTest
     private static void ClearPrefs()
     {
         PlayerPrefs.DeleteKey(ContentIntensityManager.ModeKey);
-        PlayerPrefs.DeleteKey(ContentIntensityManager.SkipOpeningKey);
         PlayerPrefs.DeleteKey(ContentIntensityManager.ContentWarningShownKey);
         PlayerPrefs.Save();
     }
@@ -38,12 +37,6 @@ public class ContentIntensityTests : EditModeTest
     public void DefaultMode_IsImplied()
     {
         Assert.AreEqual(IntensityLevel.Implied, intensity.Mode);
-    }
-
-    [Test]
-    public void DefaultSkipOpening_IsTrue()
-    {
-        Assert.IsTrue(intensity.SkipOpening);
     }
 
     [Test]
@@ -106,15 +99,13 @@ public class ContentIntensityTests : EditModeTest
     }
 
     [Test]
-    public void Manager_LoadsSkipOpeningAndWarningShown()
+    public void Manager_LoadsWarningShown()
     {
-        PlayerPrefs.SetInt(ContentIntensityManager.SkipOpeningKey, 0);
         PlayerPrefs.SetInt(ContentIntensityManager.ContentWarningShownKey, 1);
         var manager = MakeManager();
 
         TestUtils.Call(manager, "Awake");
 
-        Assert.IsFalse(intensity.SkipOpening);
         Assert.IsTrue(intensity.ContentWarningShown);
     }
 
@@ -133,14 +124,12 @@ public class ContentIntensityTests : EditModeTest
     [Test]
     public void Manager_SaveAlsoWritesFlags()
     {
-        intensity.SkipOpening = false;
         intensity.ContentWarningShown = true;
         var manager = MakeManager();
         TestUtils.Call(manager, "Awake");
 
         TestUtils.Call(manager, "Save");
 
-        Assert.AreEqual(0, PlayerPrefs.GetInt(ContentIntensityManager.SkipOpeningKey, -1));
         Assert.AreEqual(1, PlayerPrefs.GetInt(ContentIntensityManager.ContentWarningShownKey, -1));
     }
 
@@ -170,55 +159,6 @@ public class ContentIntensityTests : EditModeTest
         Assert.AreEqual(1, scene.Instances.Count);
         Assert.IsTrue(scene.Instances[0].name.StartsWith("Implied Prefab"));
         Track(scene.Instances[0]);
-    }
-
-    [Test]
-    public void OpeningSkipRouter_WhenSkipOpening_RaisesEventOnStart()
-    {
-        intensity.SkipOpening = true;
-        GameEvent skipToTutorial = Track(TestData.Event("SkipToTutorialStart"));
-        var spy = new EventSpy(skipToTutorial);
-        OpeningSkipRouter router = Make("Router").AddComponent<OpeningSkipRouter>();
-        TestUtils.Set(router, "intensity", intensity);
-        TestUtils.Set(router, "skipToTutorialStartEvent", skipToTutorial);
-
-        TestUtils.Call(router, "Start");
-
-        Assert.AreEqual(1, spy.Count);
-        Assert.IsTrue(router.Skipped);
-    }
-
-    [Test]
-    public void OpeningSkipRouter_WhenNotSkipping_DoesNothing()
-    {
-        intensity.SkipOpening = false;
-        GameEvent skipToTutorial = Track(TestData.Event("SkipToTutorialStart"));
-        var spy = new EventSpy(skipToTutorial);
-        OpeningSkipRouter router = Make("Router").AddComponent<OpeningSkipRouter>();
-        TestUtils.Set(router, "intensity", intensity);
-        TestUtils.Set(router, "skipToTutorialStartEvent", skipToTutorial);
-
-        TestUtils.Call(router, "Start");
-
-        Assert.AreEqual(0, spy.Count);
-        Assert.IsFalse(router.Skipped);
-    }
-
-    [Test]
-    public void OpeningSkipRouter_InImpliedAndSkipOff_DoesNotSkip()
-    {
-        // The rule from the design doc: Implied + skipOpening=false still sees the opening.
-        intensity.Mode = IntensityLevel.Implied;
-        intensity.SkipOpening = false;
-        GameEvent skipToTutorial = Track(TestData.Event("SkipToTutorialStart"));
-        var spy = new EventSpy(skipToTutorial);
-        OpeningSkipRouter router = Make("Router").AddComponent<OpeningSkipRouter>();
-        TestUtils.Set(router, "intensity", intensity);
-        TestUtils.Set(router, "skipToTutorialStartEvent", skipToTutorial);
-
-        TestUtils.Call(router, "Start");
-
-        Assert.AreEqual(0, spy.Count);
     }
 
     private ContentIntensityManager MakeManager()

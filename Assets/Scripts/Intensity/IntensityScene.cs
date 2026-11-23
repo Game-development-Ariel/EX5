@@ -3,9 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// A hard scene that has two versions: Implied and Direct. On Awake it reads the current intensity
-/// and instantiates the matching prefab under mountPoint. If this scene is the festival opening
-/// and the player chose to skip it, nothing is instantiated and skippedOpeningEvent is raised so
-/// the game can jump straight to the next scene (the cell).
+/// and instantiates the matching prefab under mountPoint.
 /// </summary>
 public class IntensityScene : MonoBehaviour
 {
@@ -15,21 +13,11 @@ public class IntensityScene : MonoBehaviour
     [Tooltip("Where the chosen prefabs are instantiated. If empty, this transform is used")]
     [SerializeField] private Transform mountPoint;
 
-    [Tooltip("True only for the festival opening scene. When true, skipOpening skips this scene")]
-    [SerializeField] private bool isOpening;
-
     [Tooltip("The intensity settings. Falls back to ContentIntensityManager.Current if empty")]
     [SerializeField] private ContentIntensity intensity;
 
-    [Header("Raises")]
-    [Tooltip("Raised when the opening is skipped. Listeners load the next scene (the cell)")]
-    [SerializeField] private GameEvent skippedOpeningEvent;
-
     /// <summary>The prefabs that were instantiated by this scene, in the order of variants.</summary>
     public List<GameObject> Instances { get; } = new List<GameObject>();
-
-    /// <summary>True after Spawn ran and decided to skip the opening.</summary>
-    public bool SkippedOpening { get; private set; }
 
     private void Awake()
     {
@@ -45,16 +33,6 @@ public class IntensityScene : MonoBehaviour
         ContentIntensity current = intensity != null ? intensity : ContentIntensityManager.Current;
         if (current == null)
         {
-            return;
-        }
-
-        if (isOpening && current.SkipOpening)
-        {
-            SkippedOpening = true;
-            if (skippedOpeningEvent != null)
-            {
-                skippedOpeningEvent.Raise();
-            }
             return;
         }
 

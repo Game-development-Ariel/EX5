@@ -70,9 +70,9 @@ public class DifficultyProfileFactoryTests : EditModeTest
     }
 
     [Test]
-    public void Easy_HopeDecayOnePerMinute()
+    public void Easy_HopeDoesNotDropWithTime()
     {
-        Assert.AreEqual(1f, MakeEasy().HopeNaturalDecayPerMinute);
+        Assert.AreEqual(0f, MakeEasy().HopeNaturalDecayPerMinute);
     }
 
     [Test]
@@ -172,9 +172,9 @@ public class DifficultyProfileFactoryTests : EditModeTest
     }
 
     [Test]
-    public void Medium_HopeDecayTwoPerMinute()
+    public void Medium_HopeDoesNotDropWithTime()
     {
-        Assert.AreEqual(2f, MakeMedium().HopeNaturalDecayPerMinute);
+        Assert.AreEqual(0f, MakeMedium().HopeNaturalDecayPerMinute);
     }
 
     [Test]
@@ -220,6 +220,12 @@ public class DifficultyProfileFactoryTests : EditModeTest
     }
 
     // Hard -------------------------------------------------------------------
+
+    [Test]
+    public void Hard_HopeDoesNotDropWithTime()
+    {
+        Assert.AreEqual(0f, MakeHard().HopeNaturalDecayPerMinute);
+    }
 
     [Test]
     public void Hard_IsTheHardPreset()

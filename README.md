@@ -2,36 +2,61 @@
 
 # Light in the Tunnel — מטלה 5 (Dramatic Elements)
 
-מאגר של מטלה 5 בקורס פיתוח משחקי מחשב (5787) באוניברסיטת אריאל. המטלה היא על רכיבים דרמטיים של המשחק "אור במנהרה" (Light in the Tunnel), עם ארבעה סעיפים: אתגר (Challenge), זרימה (Flow), שעשוע (Fun), ורגשות (Emotions).
+מאגר של מטלה 5 בקורס פיתוח משחקי מחשב (5787) באוניברסיטת אריאל. המטלה היא על רכיבים דרמטיים של המשחק "אור במנהרה" (Light in the Tunnel), בעשרה נושאים: אתגר, זרימה, שעשוע, רגשות, סיפור רקע, דמויות, עלילה, בניית עולם, מטא-משחק וניהול חי.
 
-* התשובות לארבעת סעיפי המטלה: [dramatic-elements.md](dramatic-elements.md)
+* מסמך העיצוב, עשרת הנושאים: [dramatic-elements.md](dramatic-elements.md)
+* העלילה כסיפור אינטראקטיבי בטוויין: [twine/](twine/)
+* ניהול חי (Live Ops): [live-ops/README.md](live-ops/README.md)
 * המשחק עצמו נמצא כאן, בשורש המאגר: פרויקט Unity של שלב הלימוד ממטלה 4, שהרכיבים הדרמטיים מחוברים אליו ועובדים בו.
 
-השחקן מתעורר בתא במנהרה. הוא צריך לצאת, לעבור את השומר ואת מצלמות האבטחה בלי להיראות, לקחת בקבוק מים מהמחסן ולהחזיר אותו למזרן. הזיכרונות והתפילה נותנים תקווה, והתקווה נותנת לגוף כוח: מהירות, ראייה בחושך ושמיעה.
+השחקן מתעורר בתא במנהרה. הוא צריך לצאת, לעבור את השומר ואת מצלמות האבטחה בלי להיראות, לקחת בקבוק מים ולהחזיר אותו למזרן. הזיכרונות והתפילה נותנים תקווה, והתקווה נותנת לגוף כוח: מהירות, ראייה בחושך ושמיעה.
 
 ## איך העבודה נכנסה למאגר
 
 | ענף (Branch) | מה יש בו |
 |---|---|
-| `design-doc` | הקובץ `dramatic-elements.md`, התשובות לארבעת סעיפי המטלה |
+| `design-doc` | הקובץ `dramatic-elements.md`, נושאים 1 עד 3 |
 | `section-1-challenge` | מערכת הקושי: פרופילים, מעקב מיומנות, התאמה דינמית |
 | `section-2-flow` | מכוון תשומת הלב, גוף התקווה, איסור טקסט שאינו חלק מהעולם |
 | `section-3-options` | תוכן אופציונלי, נגישות, עוצמות תוכן, משימות, סיום |
 | `master-plan-6-1` | תיקוני תשתית: מנעול תנועה עם סיבות, הרמת אירוע שלא נופלת בגלל מאזין אחד |
 | `playable-game` | פרויקט המשחק עצמו, והחיבור של כל הרכיבים האלה לסצנה כך שרואים אותם עובדים |
 | `live-ops` | סעיף 10: טעינה דינמית של קונפיגורציה מ-GitHub, ואירוע חי לדוגמה (הפסקת חשמל) |
+| `topics-4-8-and-twine` | נושאים 4 עד 8 במסמך, והסיפור בטוויין |
+| `doc-fixes-after-review`, `pre-submit-fixes` | תיקונים במסמך, בטוויין וב-README אחרי בדיקה |
+| `add-course-linter`, `ai-report` | בודק הקוד של הקורס, ודוח השימוש בבינה מלאכותית |
+| `code-fixes-after-review` | התאמת האבטיפוס למסמך: הדילוג על הפתיחה, התקווה שלא יורדת עם הזמן, מחיר ההיתפסות ונוסח האזהרה |
 
 ## הרכיבים הדרמטיים במשחק
 
 ### מה רואים כשמשחקים
 
-1. **אזהרת תוכן** (פעם אחת, עד שמאשרים אותה), עם אפשרות לדלג על סצנת הפתיחה.
+1. **אזהרת תוכן** (פעם אחת, עד שמאשרים אותה). בפעם הראשונה צופים בפתיחה עד הסוף, ומהפעם השנייה יש בה כפתור Skip.
 2. **בחירת קושי**: "Day One" (קל), "The Tunnel" (בינוני), "I Lost the Festival" (קשה).
-3. **השלב**: האור החם מסמן את המטרה הנוכחית (הבקבוק, ואחרי שלוקחים אותו המזרן). התקווה יורדת לאט עם הזמן. כשהיא נמוכה שומעים את הנשימה, ובייאוש את הדופק.
+3. **השלב**: האור החם מסמן את המטרה הנוכחית (הבקבוק, ואחרי שלוקחים אותו המזרן). התקווה לא יורדת עם הזמן, רק ממה שקורה. כשהיא נמוכה שומעים את הנשימה, ובייאוש את הדופק.
 4. **רגעים אופציונליים**: ליד קיר הספירה עומדים ומחזיקים E חמש שניות כדי לחרוט קו. עמידה שקטה ליד דלת התא, כשהשומר רחוק, היא רגע של התבוננות בסדק האור. גם התפילה במקום השקט נרשמת.
-5. **הסיום**: אחרי שמחזירים את הבקבוק, שורות המספר מופיעות ככתוביות, ואליהן מצטרפות שורות לפי מה שהשחקן עשה (לא נתפס, חרט קו, מצא את כל הזיכרונות).
+5. **הסיום**: אחרי שמחזירים את הבקבוק, שורות הסיום מופיעות ככתוביות, ואליהן מצטרפות שורות לפי מה שהשחקן עשה (לא נתפס, חרט קו, מצא את כל הזיכרונות).
 
 מקשים: **O** פותח את האפשרויות (נגישות ועוצמת תוכן), **F3** מציג דף שמראה מה המערכות הנסתרות עושות (לצוות ולהצגה, השחקן לא צריך אותו), **E** לפעולה אופציונלית.
+
+### האבטיפוס ומה עוד לא מומש
+
+האבטיפוס הוא **שלב הלימוד** בלבד: התא, שומר, מצלמות ובקבוק מים. המסמך מתאר את המשחק המלא (הפתיחה, הימים הקפואים וארבעה שלבים), ולכן חלק מהכללים שבו עוד לא נבנו, או שהאבטיפוס עוד עובד לפי הגרסה הקודמת שלהם. המסמך הוא המקור, והקוד יתיישר אליו כשנבנה את השלבים:
+
+| בקוד היום | במסמך |
+|---|---|
+| באפס תקווה השלב נגמר במסך הפסד | "היום נגמר", והשלב מתחיל מחדש (נושא 4) |
+| ארבע שכבות התקווה: אמונה, רגוע, חשש, ייאוש | אמונה, מחזיק מעמד, שבור, ייאוש, בגבולות 75, 50 ו-25 (נושא 4) |
+| התקווה ההתחלתית 70, 50 או 30 לפי הרמה | לפחות 30 בתחילת שלב, ורצפה של 25 בשלבים 1 ו-4 (נושאים 1 ו-4) |
+| זיכרונות עם צלילי פסנתר נותנים תקווה | הזיכרונות שייכים למודול המשפחה; בליבה מים ואוכל, תפילה, היומן והצמיד (נושא 4) |
+| חץ למטרה, מפה (M), כיתוב "+N hope", ומסך סיום עם נתונים, צליל ניצחון ו-Play again | בלי חץ, בלי מפה ובלי מספרים על המסך (נושא 2) |
+| שורות סיום ככתוביות | שורה ביומן, הכוכבים, התפיסה והספירה עד 738 (נושא 7) |
+| הכותרת "Day 1" | שלב 1 הוא יום 5, אחרי הימים הקפואים |
+| אזהרת התוכן בנוסח של המסמך, ובשלב הלימוד עוד אין צלילי התקפה | צלילי ההתקפה שייכים לפתיחה, שעוד לא נבנתה |
+| אין בחירת עוצמה אחרי האזהרה | בחירת עוצמה, מרומזת או ישירה (נושא 3) |
+| ההערה ברמה הבינונית מסגירה שהמשחק מתאים את עצמו לשחקן | המערכת פועלת בשקט (נושא 1.3) |
+
+**האירוע החי דלוק עכשיו, עד 31.12.2026.** מי שמשחק עד אז רואה את המנהרה בהפסקת חשמל: בלי מצלמות, חשוכה יותר, ועם שומר מהיר יותר. הפירוט, ואיך רואים את המשחק בלי האירוע: [live-ops/README.md](live-ops/README.md).
 
 ### סעיף 1, אתגר: הקושי
 
@@ -49,7 +74,7 @@
 | [CaughtEvent](Assets/Scripts/Difficulty/CaughtEvent.cs), [StageStartedEvent](Assets/Scripts/Difficulty/StageStartedEvent.cs), [StageEndedEvent](Assets/Scripts/Difficulty/StageEndedEvent.cs), [HopeChangedEvent](Assets/Scripts/Difficulty/HopeChangedEvent.cs), [PlayerIdleSignal](Assets/Scripts/Difficulty/PlayerIdleSignal.cs), [QuietPlaceEnteredEvent](Assets/Scripts/Difficulty/QuietPlaceEnteredEvent.cs), [QuietPlaceExitedEvent](Assets/Scripts/Difficulty/QuietPlaceExitedEvent.cs) | האותות של ה-SkillTracker, כל אחד אירוע כנכס מסוג משלו |
 | [DigSessionEndedEvent](Assets/Scripts/Difficulty/DigSessionEndedEvent.cs), [ListenActivatedEvent](Assets/Scripts/Difficulty/ListenActivatedEvent.cs) | אותות של חפירה והקשבה. בשלב הלימוד אין חפירה והקשבה, אז הם מוכנים לשלבים הבאים ולא מחוברים כאן |
 
-מה כל רמה משנה בשלב הלימוד: התקווה ההתחלתית (70, 50, 30), מחיר ההיתפסות (5, 10, 20), הדעיכה הטבעית של התקווה (1, 2, 2 לדקה), רוחב המבט של המצלמות (שלושה רבעים, רגיל, פי אחד ורבע), קצב השומר (איטי יותר ברמה הקלה) והתקווה מזיכרון (בקשה שני שלישים). שאר המספרים בפרופיל (חפירה, פנס, יומן, מספר המצלמות, בדיקות התא) שייכים לשלבים שעוד לא נבנו.
+מה כל רמה משנה בשלב הלימוד: התקווה ההתחלתית (70, 50, 30), מחיר ההיתפסות (5, 10, 20), הדעיכה הטבעית של התקווה (0 בכל הרמות, כי לפי המסמך התקווה לא יורדת עם הזמן. אפשר להדליק אותה מ-Live Ops), רוחב המבט של המצלמות (שלושה רבעים, רגיל, פי אחד ורבע), קצב השומר (איטי יותר ברמה הקלה) והתקווה מזיכרון (בקשה שני שלישים). שאר המספרים בפרופיל (חפירה, פנס, יומן, מספר המצלמות, בדיקות התא) שייכים לשלבים שעוד לא נבנו.
 
 ### סעיף 2, זרימה: תשומת הלב והגוף
 
@@ -59,7 +84,7 @@
 | [AttentionDirector](Assets/Scripts/Attention/AttentionDirector.cs), [AttentionBeat](Assets/Scripts/Attention/AttentionBeat.cs), [AttentionPolicy](Assets/Scripts/Attention/AttentionPolicy.cs) | בכל רגע מטרה אחת מוארת. כל "פעימה" אומרת מה נדלק ומה כבה, והמדיניות מגבילה לארבעה אורות |
 | [SceneStateMachine](Assets/Scripts/Attention/SceneStateMachine.cs), [SceneState](Assets/Scripts/Attention/SceneState.cs) | מצבי הסיפור של השלב: מחפשים את המים (BottleDropped), מחזירים אותם (BottlePicked) |
 | [ContinuousHope](Assets/Scripts/Player/ContinuousHope.cs) | תקווה עשרונית לצד התקווה השלמה, כדי שדעיכה איטית תצטבר |
-| [HopeNaturalDecay](Assets/Scripts/Player/HopeNaturalDecay.cs) | הדעיכה הטבעית, בקצב של הפרופיל. נעצרת כשהשחקן לא יכול לזוז |
+| [HopeNaturalDecay](Assets/Scripts/Player/HopeNaturalDecay.cs) | דעיכה לפי הקצב של הפרופיל. הקצב 0 בכל הרמות, ונשאר כמספר ש-Live Ops יכול לשנות. נעצרת כשהשחקן לא יכול לזוז |
 | [HopeBody](Assets/Scripts/Player/HopeBody.cs), [HopeTier](Assets/Scripts/Player/HopeTier.cs) | ארבע שכבות התקווה (אמונה, רגוע, חשש, ייאוש) והקולות של הגוף: נשימה ודופק |
 | [HudFreeze](Assets/Scripts/UI/HudFreeze.cs) | שומר שלא יופיע על המסך טקסט כמו "GAME OVER" או "SCORE" |
 
@@ -79,7 +104,7 @@
 | [InputMode](Assets/Scripts/Accessibility/InputMode.cs) | הקשות במקום לחיצה ארוכה |
 | [ContentIntensity](Assets/Scripts/Intensity/ContentIntensity.cs), [IntensityLevel](Assets/Scripts/Intensity/IntensityLevel.cs), [ContentIntensityManager](Assets/Scripts/Intensity/ContentIntensityManager.cs) | עוצמת התוכן (מרומז או ישיר), ושמירתה |
 | [ContentWarningScreen](Assets/Scripts/UI/ContentWarningScreen.cs), [ContentWarningText](Assets/Scripts/Intensity/ContentWarningText.cs), [RightToLeft](Assets/Scripts/UI/RightToLeft.cs) | מסך אזהרת התוכן והטקסט שלו. RightToLeft כותב עברית נכון ברכיב Text הישן |
-| [StartMenu](Assets/Scripts/UI/StartMenu.cs), [OpeningGate](Assets/Scripts/UI/OpeningGate.cs), [OpeningSkipRouter](Assets/Scripts/Intensity/OpeningSkipRouter.cs) | המסכים שלפני המשחק, והשער שמחזיק את הפתיחה עד שהם נגמרים או מדלג עליה |
+| [StartMenu](Assets/Scripts/UI/StartMenu.cs), [OpeningGate](Assets/Scripts/UI/OpeningGate.cs) | המסכים שלפני המשחק, והשער שמחזיק את הפתיחה עד שהם נגמרים. כפתור הדילוג נמצא ב-TitleCard, מהפעם השנייה |
 | [IntensityScene](Assets/Scripts/Intensity/IntensityScene.cs), [IntensityVariant](Assets/Scripts/Intensity/IntensityVariant.cs), [IntensityAudio](Assets/Scripts/Intensity/IntensityAudio.cs), [IntensityVisibilityFilter](Assets/Scripts/Intensity/IntensityVisibilityFilter.cs) | גרסה מרומזת או ישירה של סצנה, צליל או חפץ. בשלב הלימוד אין סצנה קשה, אז הם מוכנים לשלבים הבאים |
 | [OptionalRegistry](Assets/Scripts/Optional/OptionalRegistry.cs), [OptionalEntry](Assets/Scripts/Optional/OptionalEntry.cs), [OptionalKind](Assets/Scripts/Optional/OptionalKind.cs) | הקטלוג של הרגעים האופציונליים: גילוי, ביטוי, התבוננות |
 | [OptionalContent](Assets/Scripts/Optional/OptionalContent.cs), [IOptionalRecorder](Assets/Scripts/Optional/IOptionalRecorder.cs) | זוכר אילו רגעים השחקן רשם בהרצה הזאת |
@@ -90,7 +115,7 @@
 | [EndingDirector](Assets/Scripts/Ending/EndingDirector.cs), [EndingSequence](Assets/Scripts/Ending/EndingSequence.cs), [EndingBeat](Assets/Scripts/Ending/EndingBeat.cs), [EndingLanguage](Assets/Scripts/Ending/EndingLanguage.cs), [BonusNarrationLibrary](Assets/Scripts/Ending/BonusNarrationLibrary.cs) | הסיום כרצף של פעימות, ושורות הבונוס לפי המשימות. לשלב הלימוד יש רצף קצר משלו (הנכס TutorialEnding); הסיום המלא של המשחק שייך לשלב האחרון |
 | [EndingPresenter](Assets/Scripts/UI/EndingPresenter.cs) | מציג את שורות הסיום ככתוביות, אחת אחרי השנייה |
 
-### תוכנית אב 6.1: תשתית
+### תשתית (הענף `master-plan-6-1`)
 
 | מחלקה | מה היא עושה |
 |---|---|
@@ -120,7 +145,6 @@
 |---|---|---|
 | WarningAccepted, WarningDeclined | ContentWarningScreen | StartMenu |
 | StartChosen | StartMenu | OpeningGate |
-| SkipOpening | OpeningSkipRouter | OpeningGate |
 | ProfileLoaded | DifficultyManager | DifficultyApplier |
 | Caught, StageStarted, StageEnded, HopeChanged, PlayerIdle | SkillSignals | SkillTracker (ו-DifficultyModulator ל-StageStarted) |
 | QuietPlaceEntered, QuietPlaceExited | QuietPlace | SkillTracker |
@@ -154,7 +178,7 @@
 2. ב-Unity Hub פותחים את התיקייה של המאגר, בגרסה 6000.3.25f1.
 3. פותחים את הסצנה `Assets/Scenes/Tutorial` ולוחצים Play.
 
-הסצנה נבנית מקוד, בכלים שב-`Assets/Scripts/Editor`. אחרי שינוי בכלים מריצים `Tools > Rebuild Scene`. בנייה לדפדפן: `Tools > Build WebGL`. הבנייה יוצאת לתיקייה `../ex4-webgl-builds/ex4-light-in-the-tunnel`, ליד תיקיית הפרויקט ולא בתוכה, כדי שלא תיכנס לגיט.
+הסצנה נבנית מקוד, בכלים שב-`Assets/Scripts/Editor`. אחרי שינוי בכלים מריצים `Tools > Rebuild Scene`. בנייה לדפדפן: `Tools > Build WebGL`. הבנייה יוצאת לתיקייה `../ex5-webgl-build`, ליד תיקיית הפרויקט ולא בתוכה, כדי שלא תיכנס לגיט.
 
 ## איך משחקים
 
@@ -162,7 +186,7 @@
 * דוחפים דלת, ארגז או שק חול כשהולכים לתוכם.
 * בפינה המוארת בקיר המסדרון עומדים שלוש שניות בלי לזוז, כדי לומר פסוק.
 * **ניצחון**: מביאים את הבקבוק למזרן.
-* **הפסד**: כל היתפסות (בפנס של השומר או באור של מצלמה) מורידה 20 תקווה ומחזירה לתא. בלי תקווה היום נגמר.
+* **הפסד**: כל היתפסות (בפנס של השומר או באור של מצלמה) מורידה תקווה לפי רמת הקושי (5, 10 או 20, כמו במסמך; בלי רמה 10) ומחזירה לתא. בלי תקווה היום נגמר.
 
 ## פיסיקה
 

@@ -10,7 +10,7 @@ using UnityEngine;
 public static class ProjectBuilder
 {
     // Outside the project folder (next to it), so the build never gets into git.
-    private const string WebGLFolder = "../ex4-webgl-builds/ex4-light-in-the-tunnel";
+    private const string WebGLFolder = "../ex5-webgl-build";
 
     [MenuItem("Tools/Rebuild Scene")]
     public static void BuildScene()
@@ -25,7 +25,7 @@ public static class ProjectBuilder
         AssetDatabase.SaveAssets();
     }
 
-    /// <summary>Builds the game for the browser into ../ex4-webgl-builds, ready to zip and upload to itch.io.</summary>
+    /// <summary>Builds the game for the browser into ../ex5-webgl-build, ready to zip and upload to itch.io.</summary>
     [MenuItem("Tools/Build WebGL")]
     public static void BuildWebGL()
     {

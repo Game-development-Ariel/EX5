@@ -2,7 +2,8 @@ using UnityEngine;
 
 /// <summary>
 /// How much danger the hero feels, from 0 (safe) to 1 (right next to a watcher).
-/// It grows as the player gets closer to a security camera (anything with a VisionSensor). The heartbeat and the breathing
+/// It grows as the player gets closer to a security camera (anything with a VisionSensor that is on; a camera
+/// turned off, like in the power outage live event, can't see, so it isn't a danger). The heartbeat and the breathing
 /// get louder with it, and MoodVolume darkens the edges of the screen, so the player feels the danger
 /// before seeing it.
 /// </summary>
@@ -48,6 +49,10 @@ public class Tension : MonoBehaviour
         float closest = float.MaxValue;
         foreach (VisionSensor watcher in watchers)
         {
+            if (!watcher.isActiveAndEnabled)
+            {
+                continue;
+            }
             closest = Mathf.Min(closest, Vector2.Distance(player.position, watcher.transform.position));
         }
 

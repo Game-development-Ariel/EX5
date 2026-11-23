@@ -83,9 +83,9 @@ public class DifficultyProfile : ScriptableObject, IDifficultyProfile
     [Min(0)]
     [SerializeField] private int hopeLostWhenCaught = 10;
 
-    [Tooltip("Points of hope lost to the slow drain every minute")]
+    [Tooltip("Points of hope lost to the slow drain every minute. 0 by design: hope doesn't drop with time. Live Ops may turn it on")]
     [Min(0f)]
-    [SerializeField] private float hopeNaturalDecayPerMinute = 2f;
+    [SerializeField] private float hopeNaturalDecayPerMinute;
 
     [Tooltip("Hope value one picked-up memory restores")]
     [Min(0)]

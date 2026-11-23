@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: ContentIntensity
   m_EditorClassIdentifier: LightInTheTunnel::ContentIntensity
   mode: 0
-  skipOpening: 0
   contentWarningShown: 0
   modeChanged: {fileID: 11400000, guid: 207d752dc5dde8b42a53c6267a914162, type: 2}

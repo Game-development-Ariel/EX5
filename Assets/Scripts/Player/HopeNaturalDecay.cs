@@ -1,8 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// Applies the slow natural decay of hope over time, as described in section 1.2 of the
-/// dramatic-elements doc. Operates on <see cref="ContinuousHope"/> so the decay lands in
+/// Applies a slow natural decay of hope over time. By design hope doesn't drop with time (topic 4),
+/// so the rate is 0 on every level. It stays as a number Live Ops can set for a test. Operates on <see cref="ContinuousHope"/> so the decay lands in
 /// fractions and does not snap the integer <see cref="Hope"/> every frame.
 ///
 /// The rate per minute is read from the current difficulty profile when
@@ -14,9 +14,9 @@ public class HopeNaturalDecay : MonoBehaviour
 {
     private const float SecondsPerMinute = 60f;
 
-    [Tooltip("Rate in hope points per minute when no difficulty profile is active")]
+    [Tooltip("Rate in hope points per minute when no difficulty profile is active. 0: hope doesn't drop with time")]
     [Min(0f)]
-    [SerializeField] private float defaultRatePerMinute = 2f;
+    [SerializeField] private float defaultRatePerMinute;
 
     [Tooltip("Parameter key on the difficulty profile that holds the rate. Must match a profile property name")]
     [SerializeField] private string difficultyParameterName = "HopeNaturalDecayPerMinute";
@@ -61,7 +61,6 @@ public class HopeNaturalDecay : MonoBehaviour
             return defaultRatePerMinute;
         }
 
-        float fromProfile = profile.CurrentValue(difficultyParameterName);
-        return fromProfile > 0f ? fromProfile : defaultRatePerMinute;
+        return profile.CurrentValue(difficultyParameterName);
     }
 }

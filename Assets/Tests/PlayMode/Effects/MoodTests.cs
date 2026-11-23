@@ -12,6 +12,7 @@ public class MoodTests : PlayModeTest
     private Tension tension;
     private AudioSource heartbeat;
     private AudioSource breathing;
+    private VisionSensor sensor;
 
     [UnitySetUp]
     public IEnumerator SetUp()
@@ -19,7 +20,7 @@ public class MoodTests : PlayModeTest
         player = Make("Player").transform;
         player.position = new Vector3(100f, 0f, 0f); // Far away until the test moves it.
         GameObject watcher = MakeOff("Camera");
-        watcher.AddComponent<VisionSensor>(); // No target: it never sees, it is only something to fear.
+        sensor = watcher.AddComponent<VisionSensor>(); // No target: it never sees, it is only something to fear.
         watcher.SetActive(true);
 
         GameObject sound = MakeOff("Sound");
@@ -60,6 +61,17 @@ public class MoodTests : PlayModeTest
         Assert.AreEqual(0f, tension.Danger, 1e-4f);
         Assert.AreEqual(0f, heartbeat.volume, 1e-4f);
         Assert.AreEqual(TestUtils.Get<Vector2>(tension, "breathingVolume").x, breathing.volume, 1e-4f);
+    }
+
+    [UnityTest]
+    public IEnumerator Tension_IsNone_NextToACameraThatIsTurnedOff()
+    {
+        sensor.enabled = false; // Like a camera in the power outage live event.
+
+        yield return StandAt(3f);
+
+        Assert.AreEqual(0f, tension.Danger, 1e-4f);
+        Assert.AreEqual(0f, heartbeat.volume, 1e-4f);
     }
 
     [UnityTest]
