@@ -45,6 +45,7 @@ public abstract class TutorialSceneTest
         volumeBefore = AudioListener.volume;
         AudioListener.volume = 0f; // Silent: the music and the steps don't play through the speakers.
         PlayerPrefs.DeleteKey(DifficultyManager.DifficultyPrefsKey); // No saved choice: every test plays on Medium.
+        PlayerPrefs.SetInt(LiveConfigLoader.OfflinePrefsKey, 1); // No download: a live event never changes what a test checks.
         yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Single);
         yield return null;
         // The scene loaded the accessibility options the player saved on this computer. The tests play with the defaults.
@@ -58,6 +59,7 @@ public abstract class TutorialSceneTest
         Time.timeScale = 1f;
         Time.captureFramerate = 0;
         AudioListener.volume = volumeBefore;
+        PlayerPrefs.DeleteKey(LiveConfigLoader.OfflinePrefsKey); // The real game downloads its live config again.
         // An empty scene for the next test, so its objects don't land in the Tutorial scene.
         Scene empty = SceneManager.CreateScene("Empty Test Scene " + Time.frameCount);
         SceneManager.SetActiveScene(empty);

@@ -68,7 +68,7 @@ public class ArchitectureTests
             new[]
             {
                 "Accessibility", "Attention", "Audio", "Camera", "Difficulty", "Editor", "Effects", "Ending", "Events", "Game",
-                "Intensity", "Items", "Level", "Missions", "Optional", "Player", "Security", "UI",
+                "Intensity", "Items", "Level", "LiveOps", "Missions", "Optional", "Player", "Security", "UI",
             },
             folders);
     }

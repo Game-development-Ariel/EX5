@@ -19,6 +19,9 @@ public class OpeningGate : MonoBehaviour
     [Tooltip("Raised by the skip router when the player asked to skip the opening")]
     [SerializeField] private GameEvent skipOpening;
 
+    [Tooltip("Raised by a live event with a new line for the opening, to show under the day's title")]
+    [SerializeField] private TextEvent openingLineChanged;
+
     [Header("Raises")]
     [Tooltip("Raised here only when the opening is skipped. Otherwise the title card raises it")]
     [SerializeField] private GameEvent openingFinished;
@@ -36,12 +39,20 @@ public class OpeningGate : MonoBehaviour
     {
         startChosen.Subscribe(OnStartChosen);
         skipOpening.Subscribe(OnSkipOpening);
+        openingLineChanged.Subscribe(OnOpeningLineChanged);
     }
 
     private void OnDisable()
     {
         startChosen.Unsubscribe(OnStartChosen);
         skipOpening.Unsubscribe(OnSkipOpening);
+        openingLineChanged.Unsubscribe(OnOpeningLineChanged);
+    }
+
+    // The title card is still off and waiting, so the gate hands it the line.
+    private void OnOpeningLineChanged(string line)
+    {
+        titleCard.SetSubtitle(line);
     }
 
     private void OnSkipOpening()

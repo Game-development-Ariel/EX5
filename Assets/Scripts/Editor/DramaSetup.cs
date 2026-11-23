@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 /// Puts the dramatic elements of assignment 5 into the Tutorial scene and wires them to the level:
 /// the start menu (content warning and difficulty), the difficulty and its dynamic layer, the goal lights,
 /// the hope's body, the accessibility settings, the optional moments and missions, and the ending.
-/// It runs after the other setup tools, because it wires to the objects they build.
+/// It runs after the other setup tools, because it wires to the objects they build. Its last step is LiveOpsSetup.
 /// </summary>
 public static class DramaSetup
 {
@@ -89,6 +89,8 @@ public static class DramaSetup
         SetupTools.SetField(overlay, "modulator", modulator);
         SetupTools.SetField(overlay, "calm", calm);
         SetupTools.SetField(overlay, "attention", attention);
+
+        LiveOpsSetup.Setup(root);
 
         AssetDatabase.SaveAssets();
         EditorSceneManager.MarkSceneDirty(level);

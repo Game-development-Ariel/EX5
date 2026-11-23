@@ -28,6 +28,9 @@ public class GuardPatrol : MonoBehaviour
     /// <summary>Multiplies the walking speed. The difficulty sets it: a slower guard leaves longer gaps.</summary>
     public float SpeedFactor { get; set; } = 1f;
 
+    /// <summary>Multiplies the walking speed too. A live event sets it: during a power outage the guard hurries.</summary>
+    public float AlertFactor { get; set; } = 1f;
+
     /// <summary>True while the guard is walking, for the sound of the steps.</summary>
     public bool IsWalking { get; private set; }
 
@@ -42,7 +45,7 @@ public class GuardPatrol : MonoBehaviour
             IsWalking = true;
             while (transform.position != goal)
             {
-                transform.position = Vector3.MoveTowards(transform.position, goal, walkSpeed * SpeedFactor * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, goal, walkSpeed * SpeedFactor * AlertFactor * Time.deltaTime);
                 yield return null;
             }
             IsWalking = false;

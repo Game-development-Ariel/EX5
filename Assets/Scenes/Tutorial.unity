@@ -330,6 +330,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28199249}
   m_Mesh: {fileID: 0}
+--- !u!1 &76186308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76186309}
+  - component: {fileID: 76186310}
+  m_Layer: 0
+  m_Name: Counting Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76186309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76186308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 3.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1942669035}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76186310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76186308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72266591c683fd443a5b8966d78d4321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OptionalAction
+  entryId: count-wall-mark
+  holdSeconds: 5
+  cancelRadius: 1
+  player: {fileID: 2100000002}
+  interactAction:
+    m_Name: 
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 95ef1a35-e304-4b8e-b560-063f6caeeefb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a97880cf-3bdd-41c4-94aa-b3c9b000f7eb
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: 
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  thoughtRequested: {fileID: 11400000, guid: c07f8f93dcd6e4645a1309bdddfa7b10, type: 2}
+  hint: 'I could scratch a line of my own here. One day.
+
+    (Stand here and hold
+    E)'
+  completedThought: 'One line. Mine.
+
+    Someone will count it after me.'
 --- !u!1 &110167779
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,135 +498,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &126447534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 126447535}
-  - component: {fileID: 126447536}
-  m_Layer: 0
-  m_Name: Breath
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &126447535
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126447534}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1144295492}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &126447536
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126447534}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &134386723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,11 +522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f886efada24bf2845a10d216b9443a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightInTheTunnel::HopeBody
-  breathSource: {fileID: 126447536}
+  breathSource: {fileID: 445936100}
   quietBreathClip: {fileID: 8300000, guid: 17cbd7b9aa4c40e41a1492dc220bbc78, type: 3}
   audibleBreathClip: {fileID: 8300000, guid: 17cbd7b9aa4c40e41a1492dc220bbc78, type: 3}
   fastBreathClip: {fileID: 8300000, guid: 17cbd7b9aa4c40e41a1492dc220bbc78, type: 3}
-  pulseSource: {fileID: 2009139005}
+  pulseSource: {fileID: 1829856214}
   despairPulseGain: 2.5
   normalPulseGain: 0
   pulseBaseVolume: 0.35
@@ -611,6 +559,159 @@ MonoBehaviour:
   m_EditorClassIdentifier: LightInTheTunnel::HopeNaturalDecay
   defaultRatePerMinute: 2
   difficultyParameterName: HopeNaturalDecayPerMinute
+--- !u!1 &160600756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160600757}
+  - component: {fileID: 160600759}
+  - component: {fileID: 160600758}
+  m_Layer: 0
+  m_Name: Ending
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160600757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160600756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160600758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160600756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e2d1f5342a4b74e8ff099088b515a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::EndingPresenter
+  director: {fileID: 160600759}
+  subtitles: {fileID: 880444324}
+  lineSeconds: 4
+--- !u!114 &160600759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160600756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07ee2dc85155b649b3696c52b79e71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::EndingDirector
+  endingTriggered: {fileID: 11400000, guid: fc9053f6d34c35c4d88ca7edb916d634, type: 2}
+  sequence: {fileID: 11400000, guid: 3b1b5958460695a408af8a60c73df17b, type: 2}
+  bonusLibrary: {fileID: 11400000, guid: 9c6b95884351e5e449cb2e7cdea87215, type: 2}
+  renderConstellations:
+    m_PersistentCalls:
+      m_Calls: []
+  renderSandbagInNews:
+    m_PersistentCalls:
+      m_Calls: []
+  renderThickJournal:
+    m_PersistentCalls:
+      m_Calls: []
+  renderBraceletOnWrist:
+    m_PersistentCalls:
+      m_Calls: []
+  beatEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  subtitleShown:
+    m_PersistentCalls:
+      m_Calls: []
+  bonusNarrationPlayed:
+    m_PersistentCalls:
+      m_Calls: []
+  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
+  language: 1
+  stageId: stage1
+--- !u!1 &230511446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230511447}
+  - component: {fileID: 230511449}
+  - component: {fileID: 230511448}
+  m_Layer: 0
+  m_Name: Live Ops
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230511447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230511446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230511448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230511446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d4b2954839cb9489af1b550ed0d3e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::PowerOutage
+  liveConfig: {fileID: 230511449}
+  bulbs: {fileID: 479972615}
+  watchers: {fileID: 1538522801}
+  heroSenses: {fileID: 954309193}
+  liveConfigLoaded: {fileID: 11400000, guid: 8353c271e6688564388d274e410ce985, type: 2}
+  openingLineChanged: {fileID: 11400000, guid: ecbae89f4c945634fb580901c08716b7, type: 2}
+--- !u!114 &230511449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230511446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f173c971b95ca845a93caadc03b1dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::LiveConfigLoader
+  url: https://raw.githubusercontent.com/Game-development-Ariel/ex5/main/live-ops/live-config.json
+  timeoutSeconds: 5
+  liveConfigLoaded: {fileID: 11400000, guid: 8353c271e6688564388d274e410ce985, type: 2}
 --- !u!1 &233006568
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +901,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &242710563
+--- !u!1 &316932642
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -808,118 +909,101 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 242710569}
-  - component: {fileID: 242710568}
-  - component: {fileID: 242710567}
-  - component: {fileID: 242710566}
-  - component: {fileID: 242710564}
-  - component: {fileID: 242710565}
+  - component: {fileID: 316932645}
+  - component: {fileID: 316932644}
+  - component: {fileID: 316932643}
   m_Layer: 0
-  m_Name: Optional
+  m_Name: Goal Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &242710564
+--- !u!114 &316932643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
+  m_GameObject: {fileID: 316932642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122996405d7b37b4d92926e79ee90591, type: 3}
+  m_Script: {fileID: 11500000, guid: c17611ae765f1524cbe2af2401258ea5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::SlowMomentsDirector
-  digActiveEvent: {fileID: 0}
-  digEndedEvent: {fileID: 0}
-  guardCloseEvent: {fileID: 11400000, guid: c33705173707e0b4eae252b2bd44d0f6, type: 2}
-  guardClearEvent: {fileID: 11400000, guid: 2380f6b01da68dc47a0c95be4392e81e, type: 2}
-  scriptedBreakingPointEvent: {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
-  scriptedBreakingPointEndedEvent: {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
-  playerMovement: {fileID: 2100000005}
-  calmSecondsRequired: 3
---- !u!114 &242710565
+  m_EditorClassIdentifier: LightInTheTunnel::HighlightTarget
+  highlightLight: {fileID: 316932644}
+  onIntensity: 0.9
+  offIntensity: 0
+  fallbackSprite: {fileID: 0}
+  onAlpha: 1
+  offAlpha: 0.15
+  highlightSting: {fileID: 0}
+--- !u!114 &316932644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
+  m_GameObject: {fileID: 316932642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3424038f84303b54293eb9b4afcc09d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::CalmSignals
-  tension: {fileID: 2036353934}
-  settings: {fileID: 11400000, guid: 38a37a9d0f412c147a90ca6d3e4c0e0e, type: 2}
-  closeAtDanger: 0.95
-  clearAtDanger: 0.85
-  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
-  guardClose: {fileID: 11400000, guid: c33705173707e0b4eae252b2bd44d0f6, type: 2}
-  guardClear: {fileID: 11400000, guid: 2380f6b01da68dc47a0c95be4392e81e, type: 2}
-  scriptedBeatStarted: {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
-  scriptedBeatEnded: {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
---- !u!114 &242710566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a476ed537e1f349a87f37f965e4ac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::RunStateTracker
-  missions: {fileID: 242710567}
-  memoryFound: {fileID: 11400000, guid: 17a49c65c13f3934e9ec656d02c95c4e, type: 2}
-  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
---- !u!114 &242710567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff0fea01770a5f43a8b5c5b4f23be7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OptionalMissions
-  missions: []
-  optionalRecorded: {fileID: 0}
---- !u!114 &242710568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8023d66a16051604686767e81502a48c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OptionalContent
-  registry: {fileID: 11400000, guid: 016487d319c85e9438d684fb20791292, type: 2}
---- !u!4 &242710569
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 3
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.62, g: 0.8, b: 1, a: 1}
+  m_Intensity: 0
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.3
+  m_PointLightOuterRadius: 2.4
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &316932645
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242710563}
+  m_GameObject: {fileID: 316932642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1243803471}
-  - {fileID: 1661098089}
-  m_Father: {fileID: 1147067240}
+  m_Children: []
+  m_Father: {fileID: 1122761394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &331470452
 MonoBehaviour:
@@ -5898,7 +5982,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &468603928
+--- !u!1 &445936098
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5906,125 +5990,127 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 468603935}
-  - component: {fileID: 468603934}
-  - component: {fileID: 468603933}
-  - component: {fileID: 468603929}
-  - component: {fileID: 468603932}
-  - component: {fileID: 468603931}
-  - component: {fileID: 468603930}
+  - component: {fileID: 445936099}
+  - component: {fileID: 445936100}
   m_Layer: 0
-  m_Name: Accessibility
+  m_Name: Breath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &468603929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4788504c40d584dbd397c2895772f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::SubtitleManager
-  subtitleRequested: {fileID: 11400000, guid: 47ce2a54cb32be0419fe1345171f0af4, type: 2}
---- !u!114 &468603930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48106eee38122c74d85395731617dff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::HudFreeze
-  scanIntervalSeconds: 2
-  additionalBannedTexts: []
-  disableOffenders: 1
---- !u!114 &468603931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327bdd7ebd27ff8428541ffd514ae984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::BodyCaptions
-  body: {fileID: 134386724}
-  subtitleRequested: {fileID: 11400000, guid: 47ce2a54cb32be0419fe1345171f0af4, type: 2}
-  worryCaption: '[breathing, heavier]'
-  despairCaption: '[heartbeat, loud. it covers the steps outside]'
-  captionSeconds: 3
---- !u!114 &468603932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1f0cd630e76f9408e5a30fac3f6ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::ColorblindFilter
-  anchor: {x: 1, y: 1}
-  offset: {x: -48, y: -48}
-  size: 56
-  hope: {fileID: 2100000009}
-  hopeEffects: {fileID: 11400000, guid: 60594f0f667c6384387a02107200ba3c, type: 2}
---- !u!114 &468603933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0131b6362363f440b2bff59a3d3a7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::VisualCueOverlay
-  soundCueRaised: {fileID: 11400000, guid: 7c95d2f9aaadf4246a0b15c2fc07b447, type: 2}
-  maxChevrons: 6
---- !u!114 &468603934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff18097fa6743c143b29609c11cbf0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::AccessibilityManager
-  settings: {fileID: 11400000, guid: 6dc969333fa304349a6e07e1e75aafd2, type: 2}
-  dontDestroyOnLoad: 0
---- !u!4 &468603935
+--- !u!4 &445936099
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468603928}
+  m_GameObject: {fileID: 445936098}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1147067240}
+  m_Father: {fileID: 711948676}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &445936100
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445936098}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &474531342
 GameObject:
   m_ObjectHideFlags: 0
@@ -18166,7 +18252,7 @@ MonoBehaviour:
     rid: 7927845169647845624
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1220934753}
+    m_Mesh: {fileID: 1627645762}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
@@ -18609,6 +18695,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 4, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &711948675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711948676}
+  m_Layer: 0
+  m_Name: Body Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &711948676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711948675}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 445936099}
+  - {fileID: 1829856213}
+  m_Father: {fileID: 2100000002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722994231
 GameObject:
   m_ObjectHideFlags: 0
@@ -19789,6 +19908,158 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &734424537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734424540}
+  - component: {fileID: 734424539}
+  - component: {fileID: 734424538}
+  m_Layer: 0
+  m_Name: Goal Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &734424538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734424537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17611ae765f1524cbe2af2401258ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::HighlightTarget
+  highlightLight: {fileID: 734424539}
+  onIntensity: 0.9
+  offIntensity: 0
+  fallbackSprite: {fileID: 0}
+  onAlpha: 1
+  offAlpha: 0.15
+  highlightSting: {fileID: 0}
+--- !u!114 &734424539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734424537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 3
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.82, b: 0.58, a: 1}
+  m_Intensity: 0
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.3
+  m_PointLightOuterRadius: 2.4
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &734424540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734424537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1574243898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &743081014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743081016}
+  - component: {fileID: 743081015}
+  m_Layer: 0
+  m_Name: Content Warning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &743081015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743081014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d2712ef2c080346b335c63b246e88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::ContentWarningScreen
+  text: {fileID: 11400000, guid: 55ca43977eee49a488543272b4172ea8, type: 2}
+  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
+  warningAccepted: {fileID: 11400000, guid: 11b3e5254e1069f4c9f68fac7bf1defa, type: 2}
+  warningDeclined: {fileID: 11400000, guid: 2bb2bf76788ef2a459c83a6e963ea392, type: 2}
+--- !u!4 &743081016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743081014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1505574836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819974606
 GameObject:
   m_ObjectHideFlags: 0
@@ -20005,6 +20276,133 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &880444323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880444330}
+  - component: {fileID: 880444329}
+  - component: {fileID: 880444328}
+  - component: {fileID: 880444324}
+  - component: {fileID: 880444327}
+  - component: {fileID: 880444326}
+  - component: {fileID: 880444325}
+  m_Layer: 0
+  m_Name: Accessibility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &880444324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4788504c40d584dbd397c2895772f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::SubtitleManager
+  subtitleRequested: {fileID: 11400000, guid: 47ce2a54cb32be0419fe1345171f0af4, type: 2}
+--- !u!114 &880444325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48106eee38122c74d85395731617dff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::HudFreeze
+  scanIntervalSeconds: 2
+  additionalBannedTexts: []
+  disableOffenders: 1
+--- !u!114 &880444326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327bdd7ebd27ff8428541ffd514ae984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::BodyCaptions
+  body: {fileID: 134386724}
+  subtitleRequested: {fileID: 11400000, guid: 47ce2a54cb32be0419fe1345171f0af4, type: 2}
+  worryCaption: '[breathing, heavier]'
+  despairCaption: '[heartbeat, loud. it covers the steps outside]'
+  captionSeconds: 3
+--- !u!114 &880444327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1f0cd630e76f9408e5a30fac3f6ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::ColorblindFilter
+  anchor: {x: 1, y: 1}
+  offset: {x: -48, y: -48}
+  size: 56
+  hope: {fileID: 2100000009}
+  hopeEffects: {fileID: 11400000, guid: 60594f0f667c6384387a02107200ba3c, type: 2}
+--- !u!114 &880444328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0131b6362363f440b2bff59a3d3a7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::VisualCueOverlay
+  soundCueRaised: {fileID: 11400000, guid: 7c95d2f9aaadf4246a0b15c2fc07b447, type: 2}
+  maxChevrons: 6
+--- !u!114 &880444329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff18097fa6743c143b29609c11cbf0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::AccessibilityManager
+  settings: {fileID: 11400000, guid: 6dc969333fa304349a6e07e1e75aafd2, type: 2}
+  dontDestroyOnLoad: 0
+--- !u!4 &880444330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880444323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893427603
 GameObject:
   m_ObjectHideFlags: 0
@@ -25135,115 +25533,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1028176774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1028176779}
-  - component: {fileID: 1028176775}
-  - component: {fileID: 1028176778}
-  - component: {fileID: 1028176777}
-  - component: {fileID: 1028176776}
-  m_Layer: 0
-  m_Name: Start Menu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1028176775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028176774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14c6b3dce4cd8a45bf239c414ca824c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::ContentIntensityManager
-  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
---- !u!114 &1028176776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028176774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772d10f13edcd494388273a9e935b6eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OpeningGate
-  titleCard: {fileID: 956986038}
-  skipRouter: {fileID: 1028176777}
-  startChosen: {fileID: 11400000, guid: 8a6d20433bba602479a2c97c10a70dbc, type: 2}
-  skipOpening: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
-  openingFinished: {fileID: 11400000, guid: 434fa2875b7cd4eb19e755c72c9574a1, type: 2}
---- !u!114 &1028176777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028176774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95aea01df910fe143b3585e03228899e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OpeningSkipRouter
-  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
-  skipToTutorialStartEvent: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
---- !u!114 &1028176778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028176774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0082756e14c0c5d4ebf4cc6092ade64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::StartMenu
-  warning: {fileID: 1562280677}
-  intensityManager: {fileID: 1028176775}
-  difficulty: {fileID: 1911578125}
-  question: How heavy are the days?
-  levelNames:
-  - Day One
-  - The Tunnel
-  - I Lost the Festival
-  levelNotes:
-  - More hope to start with. The eyes on the walls see less, and the guard walks
-    slowly.
-  - The way it was meant to be. It watches how I do, and gives or takes a little.
-  - Little hope, and every capture takes much of it. The eyes see wide.
-  keysHint: O  options        F3  what the game is doing
-  warningAccepted: {fileID: 11400000, guid: 11b3e5254e1069f4c9f68fac7bf1defa, type: 2}
-  warningDeclined: {fileID: 11400000, guid: 2bb2bf76788ef2a459c83a6e963ea392, type: 2}
-  startChosen: {fileID: 11400000, guid: 8a6d20433bba602479a2c97c10a70dbc, type: 2}
---- !u!4 &1028176779
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028176774}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1562280678}
-  m_Father: {fileID: 1147067240}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030931753
 GameObject:
   m_ObjectHideFlags: 0
@@ -25342,110 +25631,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.55, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1040827955
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1040827958}
-  - component: {fileID: 1040827957}
-  - component: {fileID: 1040827956}
-  m_Layer: 0
-  m_Name: Goal Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1040827956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040827955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c17611ae765f1524cbe2af2401258ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::HighlightTarget
-  highlightLight: {fileID: 1040827957}
-  onIntensity: 0.9
-  offIntensity: 0
-  fallbackSprite: {fileID: 0}
-  onAlpha: 1
-  offAlpha: 0.15
-  highlightSting: {fileID: 0}
---- !u!114 &1040827957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040827955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
-  m_ComponentVersion: 3
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.82, b: 0.58, a: 1}
-  m_Intensity: 0
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 2.4
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &1040827958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040827955}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1574243898}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080712405
 GameObject:
   m_ObjectHideFlags: 0
@@ -25736,7 +25921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1958144288}
+  - {fileID: 316932645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1122761395
@@ -25753,6 +25938,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BottleSpawner
   bottlePrefab: {fileID: 5757363013142601588, guid: 7a4b225188b844b0aa0e1b43f07db720, type: 3}
   bottleDropped: {fileID: 11400000, guid: 4ac3ee28c150c403e8ce119c5b300be0, type: 2}
+--- !u!1 &1125569180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125569183}
+  - component: {fileID: 1125569182}
+  - component: {fileID: 1125569181}
+  m_Layer: 0
+  m_Name: Attention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1125569181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125569180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa20eee29de65d44ae370370c97e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::AttentionDirector
+  beats:
+  - name: Water lit
+    toLight:
+    - {fileID: 316932643}
+    toDim:
+    - {fileID: 734424538}
+    ambientBoostMultiplier: 1
+  - name: Mattress lit
+    toLight:
+    - {fileID: 734424538}
+    toDim:
+    - {fileID: 316932643}
+    ambientBoostMultiplier: 1
+  advanceBeat: {fileID: 0}
+  sceneStateMachine: {fileID: 1125569182}
+--- !u!114 &1125569182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125569180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22f59e46a35d68499df9e9b62ea95e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::SceneStateMachine
+  states:
+  - name: Find the water
+    onEnter: {fileID: 11400000, guid: 4ac3ee28c150c403e8ce119c5b300be0, type: 2}
+    onExit: {fileID: 0}
+  - name: Bring it back
+    onEnter: {fileID: 11400000, guid: 315f3dd16afc6c54c8f5b7ca85255c99, type: 2}
+    onExit: {fileID: 0}
+--- !u!4 &1125569183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125569180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140622395
 GameObject:
   m_ObjectHideFlags: 0
@@ -25844,77 +26108,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1144295491
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1144295492}
-  m_Layer: 0
-  m_Name: Body Sounds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1144295492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144295491}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 126447535}
-  - {fileID: 2009139004}
-  m_Father: {fileID: 2100000002}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1147067239
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1147067240}
-  m_Layer: 0
-  m_Name: Dramatic Elements
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1147067240
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147067239}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1911578127}
-  - {fileID: 1182896402}
-  - {fileID: 468603935}
-  - {fileID: 242710569}
-  - {fileID: 1746751237}
-  - {fileID: 1028176779}
-  - {fileID: 2093594380}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163268400
 GameObject:
   m_ObjectHideFlags: 0
@@ -25948,337 +26141,6 @@ Transform:
   - {fileID: 1643630842}
   m_Father: {fileID: 1538522801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1182896399
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1182896402}
-  - component: {fileID: 1182896401}
-  - component: {fileID: 1182896400}
-  m_Layer: 0
-  m_Name: Attention
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1182896400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182896399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa20eee29de65d44ae370370c97e9e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::AttentionDirector
-  beats:
-  - name: Water lit
-    toLight:
-    - {fileID: 1958144286}
-    toDim:
-    - {fileID: 1040827956}
-    ambientBoostMultiplier: 1
-  - name: Mattress lit
-    toLight:
-    - {fileID: 1040827956}
-    toDim:
-    - {fileID: 1958144286}
-    ambientBoostMultiplier: 1
-  advanceBeat: {fileID: 0}
-  sceneStateMachine: {fileID: 1182896401}
---- !u!114 &1182896401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182896399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22f59e46a35d68499df9e9b62ea95e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::SceneStateMachine
-  states:
-  - name: Find the water
-    onEnter: {fileID: 11400000, guid: 4ac3ee28c150c403e8ce119c5b300be0, type: 2}
-    onExit: {fileID: 0}
-  - name: Bring it back
-    onEnter: {fileID: 11400000, guid: 315f3dd16afc6c54c8f5b7ca85255c99, type: 2}
-    onExit: {fileID: 0}
---- !u!4 &1182896402
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182896399}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1147067240}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1220934753
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 12
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
-  m_MeshLodInfo:
-    serializedVersion: 2
-    m_LodSelectionCurve:
-      serializedVersion: 1
-      m_LodSlope: 0
-      m_LodBias: 0
-    m_NumLevels: 1
-    m_SubMeshes:
-    - serializedVersion: 2
-      m_Levels:
-      - serializedVersion: 1
-        m_IndexStart: 0
-        m_IndexCount: 0
---- !u!1 &1243803470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1243803471}
-  - component: {fileID: 1243803473}
-  - component: {fileID: 1243803472}
-  m_Layer: 0
-  m_Name: Door Crack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1243803471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243803470}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 242710569}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1243803472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243803470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1483ba1e926ba8d4ca23c8f33edf9e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OptionalZone
-  entryId: door-crack-look
-  whenRecorded: {fileID: 0}
-  calm: {fileID: 242710564}
-  thoughtRequested: {fileID: 11400000, guid: c07f8f93dcd6e4645a1309bdddfa7b10, type: 2}
-  thought: 'A line of light under the door. I watch it for a while.
-
-    It doesn''t
-    move. Out there, it is still day.'
---- !u!65 &1243803473
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243803470}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1269213738
 GameObject:
   m_ObjectHideFlags: 0
@@ -26577,6 +26439,111 @@ Transform:
   - {fileID: 1289426153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1303361659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303361660}
+  - component: {fileID: 1303361662}
+  - component: {fileID: 1303361661}
+  m_Layer: 0
+  m_Name: Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1303361660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303361659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303361661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303361659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f1f07bc07cd394f878900d3a5b0a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::DevOverlay
+  hope: {fileID: 2100000009}
+  continuousHope: {fileID: 134386725}
+  body: {fileID: 134386724}
+  movementLock: {fileID: 134386723}
+  tracker: {fileID: 1811596773}
+  modulator: {fileID: 1811596769}
+  calm: {fileID: 1942669030}
+  attention: {fileID: 1125569181}
+  liveConfig: {fileID: 230511449}
+  powerOutage: {fileID: 230511448}
+  toggleAction:
+    m_Name: 
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 47a1e616-39b8-44c2-a7e2-65556b70f099
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1538c617-e51b-4565-8501-832db0bca36e
+      m_Path: <Keyboard>/f3
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: 
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+--- !u!114 &1303361662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303361659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d1b81c4ae6e9e43b4896c1516e7d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OptionsMenu
+  movementLock: {fileID: 134386723}
+  intensityManager: {fileID: 1505574832}
+  toggleAction:
+    m_Name: 
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 67033ee6-8695-4060-b79c-974c5a5a6fb6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 08efa92f-f41d-44a0-b276-2fe928fddbef
+      m_Path: <Keyboard>/o
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: 
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
 --- !u!1 &1311084628
 GameObject:
   m_ObjectHideFlags: 0
@@ -28062,6 +28029,118 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1505574831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505574836}
+  - component: {fileID: 1505574832}
+  - component: {fileID: 1505574835}
+  - component: {fileID: 1505574834}
+  - component: {fileID: 1505574833}
+  m_Layer: 0
+  m_Name: Start Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1505574832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505574831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14c6b3dce4cd8a45bf239c414ca824c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::ContentIntensityManager
+  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
+--- !u!114 &1505574833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505574831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772d10f13edcd494388273a9e935b6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OpeningGate
+  titleCard: {fileID: 956986038}
+  skipRouter: {fileID: 1505574834}
+  startChosen: {fileID: 11400000, guid: 8a6d20433bba602479a2c97c10a70dbc, type: 2}
+  skipOpening: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
+  openingLineChanged: {fileID: 11400000, guid: ecbae89f4c945634fb580901c08716b7, type: 2}
+  openingFinished: {fileID: 11400000, guid: 434fa2875b7cd4eb19e755c72c9574a1, type: 2}
+--- !u!114 &1505574834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505574831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aea01df910fe143b3585e03228899e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OpeningSkipRouter
+  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
+  skipToTutorialStartEvent: {fileID: 11400000, guid: 8c880c842a4f7214fa2ebf0adac70887, type: 2}
+--- !u!114 &1505574835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505574831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0082756e14c0c5d4ebf4cc6092ade64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::StartMenu
+  warning: {fileID: 743081015}
+  intensityManager: {fileID: 1505574832}
+  difficulty: {fileID: 1811596772}
+  liveConfig: {fileID: 230511449}
+  question: How heavy are the days?
+  levelNames:
+  - Day One
+  - The Tunnel
+  - I Lost the Festival
+  levelNotes:
+  - More hope to start with. The eyes on the walls see less, and the guard walks
+    slowly.
+  - The way it was meant to be. It watches how I do, and gives or takes a little.
+  - Little hope, and every capture takes much of it. The eyes see wide.
+  keysHint: O  options        F3  what the game is doing
+  warningAccepted: {fileID: 11400000, guid: 11b3e5254e1069f4c9f68fac7bf1defa, type: 2}
+  warningDeclined: {fileID: 11400000, guid: 2bb2bf76788ef2a459c83a6e963ea392, type: 2}
+  liveConfigLoaded: {fileID: 11400000, guid: 8353c271e6688564388d274e410ce985, type: 2}
+  startChosen: {fileID: 11400000, guid: 8a6d20433bba602479a2c97c10a70dbc, type: 2}
+--- !u!4 &1505574836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505574831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 743081016}
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506932618
 GameObject:
   m_ObjectHideFlags: 0
@@ -28297,54 +28376,6 @@ Transform:
   - {fileID: 1694665810}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1562280676
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1562280678}
-  - component: {fileID: 1562280677}
-  m_Layer: 0
-  m_Name: Content Warning
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1562280677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562280676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d2712ef2c080346b335c63b246e88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::ContentWarningScreen
-  text: {fileID: 11400000, guid: 55ca43977eee49a488543272b4172ea8, type: 2}
-  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
-  warningAccepted: {fileID: 11400000, guid: 11b3e5254e1069f4c9f68fac7bf1defa, type: 2}
-  warningDeclined: {fileID: 11400000, guid: 2bb2bf76788ef2a459c83a6e963ea392, type: 2}
---- !u!4 &1562280678
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562280676}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1028176779}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574243895
 GameObject:
   m_ObjectHideFlags: 0
@@ -28410,9 +28441,187 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1040827958}
+  - {fileID: 734424540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &1627645762
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 12
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
 --- !u!1 &1639664744
 GameObject:
   m_ObjectHideFlags: 0
@@ -28535,83 +28744,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1163268401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1661098088
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1661098089}
-  - component: {fileID: 1661098090}
-  m_Layer: 0
-  m_Name: Counting Wall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1661098089
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661098088}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 242710569}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1661098090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661098088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72266591c683fd443a5b8966d78d4321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OptionalAction
-  entryId: count-wall-mark
-  holdSeconds: 5
-  cancelRadius: 1
-  player: {fileID: 2100000002}
-  interactAction:
-    m_Name: 
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: 936e9ac4-bac4-4239-8139-79a801de559c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: f5a58061-28f0-4fe0-83c8-02685895a783
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: 
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
-  onCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  thoughtRequested: {fileID: 11400000, guid: c07f8f93dcd6e4645a1309bdddfa7b10, type: 2}
-  hint: 'I could scratch a line of my own here. One day.
-
-    (Stand here and hold
-    E)'
-  completedThought: 'One line. Mine.
-
-    Someone will count it after me.'
 --- !u!1 &1694665809
 GameObject:
   m_ObjectHideFlags: 0
@@ -28840,93 +28972,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18, y: 0.8, z: 1}
   m_Center: {x: 0, y: -0.4, z: 0}
---- !u!1 &1746751236
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1746751237}
-  - component: {fileID: 1746751239}
-  - component: {fileID: 1746751238}
-  m_Layer: 0
-  m_Name: Ending
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1746751237
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746751236}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1147067240}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1746751238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746751236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e2d1f5342a4b74e8ff099088b515a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::EndingPresenter
-  director: {fileID: 1746751239}
-  subtitles: {fileID: 468603929}
-  lineSeconds: 4
---- !u!114 &1746751239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746751236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07ee2dc85155b649b3696c52b79e71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::EndingDirector
-  endingTriggered: {fileID: 11400000, guid: fc9053f6d34c35c4d88ca7edb916d634, type: 2}
-  sequence: {fileID: 11400000, guid: 3b1b5958460695a408af8a60c73df17b, type: 2}
-  bonusLibrary: {fileID: 11400000, guid: 9c6b95884351e5e449cb2e7cdea87215, type: 2}
-  renderConstellations:
-    m_PersistentCalls:
-      m_Calls: []
-  renderSandbagInNews:
-    m_PersistentCalls:
-      m_Calls: []
-  renderThickJournal:
-    m_PersistentCalls:
-      m_Calls: []
-  renderBraceletOnWrist:
-    m_PersistentCalls:
-      m_Calls: []
-  beatEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  subtitleShown:
-    m_PersistentCalls:
-      m_Calls: []
-  bonusNarrationPlayed:
-    m_PersistentCalls:
-      m_Calls: []
-  intensity: {fileID: 11400000, guid: d7654dcf91502ee42a86f44ccedc0537, type: 2}
-  language: 1
-  stageId: stage1
 --- !u!1 &1754024672
 GameObject:
   m_ObjectHideFlags: 0
@@ -34097,6 +34142,138 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1811596768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811596774}
+  - component: {fileID: 1811596772}
+  - component: {fileID: 1811596773}
+  - component: {fileID: 1811596769}
+  - component: {fileID: 1811596771}
+  - component: {fileID: 1811596770}
+  m_Layer: 0
+  m_Name: Difficulty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1811596769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f56cbcd4914b14ebbda3e4dbdfcd3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::DifficultyModulator
+  skillTracker: {fileID: 1811596773}
+  mediumProfile: {fileID: 11400000, guid: d841afbeb34c12e46bfb20ff654c4e9e, type: 2}
+  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
+  scriptedSequenceStarts:
+  - {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
+  scriptedSequenceEnds:
+  - {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
+--- !u!114 &1811596770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6d89b29df3df647969ca3b8e71744a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::SkillSignals
+  hope: {fileID: 2100000009}
+  player: {fileID: 2100000005}
+  tracker: {fileID: 1811596773}
+  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
+  openingFinished: {fileID: 11400000, guid: 434fa2875b7cd4eb19e755c72c9574a1, type: 2}
+  levelWon: {fileID: 11400000, guid: fc9053f6d34c35c4d88ca7edb916d634, type: 2}
+  levelLost: {fileID: 11400000, guid: 9bd26525899a7814c8015df10b63a071, type: 2}
+  memoryFound: {fileID: 11400000, guid: 17a49c65c13f3934e9ec656d02c95c4e, type: 2}
+  caught: {fileID: 11400000, guid: 0adb77847a897b74f9b48b0565011a44, type: 2}
+  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
+  stageEnded: {fileID: 11400000, guid: 2ebfdb818124bde44b0d0dfc1ab0917e, type: 2}
+  hopeChanged: {fileID: 11400000, guid: f7a72ab8386fa3a4ab01c3de8efb0f96, type: 2}
+  playerIdle: {fileID: 11400000, guid: 68b83a79936fbdc46b8fc8742b4bf54a, type: 2}
+--- !u!114 &1811596771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ea8cc40e588a14689a76f46b43ff14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::DifficultyApplier
+  hope: {fileID: 2100000009}
+  modulator: {fileID: 1811596769}
+  watchers: {fileID: 1538522801}
+  profileLoaded: {fileID: 11400000, guid: db6a61d42d713b844b756037d069a76b, type: 2}
+--- !u!114 &1811596772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbaaf42661c19f46b6cb3822caec881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::DifficultyManager
+  defaultProfile: {fileID: 11400000, guid: d841afbeb34c12e46bfb20ff654c4e9e, type: 2}
+  liveConfig: {fileID: 230511449}
+  profileLoaded: {fileID: 11400000, guid: db6a61d42d713b844b756037d069a76b, type: 2}
+--- !u!114 &1811596773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f397de5002206cf499126a6ddedf7013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::SkillTracker
+  caught: {fileID: 11400000, guid: 0adb77847a897b74f9b48b0565011a44, type: 2}
+  playerIdle: {fileID: 11400000, guid: 68b83a79936fbdc46b8fc8742b4bf54a, type: 2}
+  digSessionEnded: {fileID: 0}
+  listenActivated: {fileID: 0}
+  hopeChanged: {fileID: 11400000, guid: f7a72ab8386fa3a4ab01c3de8efb0f96, type: 2}
+  quietPlaceEntered: {fileID: 11400000, guid: 5440393106d9bc04fba0b6468d92bbad, type: 2}
+  quietPlaceExited: {fileID: 11400000, guid: cffbfeccc56a4c847b5f4e51ee81727a, type: 2}
+  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
+  stageEnded: {fileID: 11400000, guid: 2ebfdb818124bde44b0d0dfc1ab0917e, type: 2}
+--- !u!4 &1811596774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811596768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913145444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822779994
 GameObject:
   m_ObjectHideFlags: 0
@@ -34188,6 +34365,135 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1829856212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829856213}
+  - component: {fileID: 1829856214}
+  m_Layer: 0
+  m_Name: Pulse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829856213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829856212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711948676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1829856214
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829856212}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 443e99dbb06d41947ab89667c1da08a2, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1886431644
 GameObject:
   m_ObjectHideFlags: 0
@@ -35372,7 +35678,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1911578121
+--- !u!1 &1913145443
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35380,130 +35686,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1911578127}
-  - component: {fileID: 1911578125}
-  - component: {fileID: 1911578126}
-  - component: {fileID: 1911578122}
-  - component: {fileID: 1911578124}
-  - component: {fileID: 1911578123}
+  - component: {fileID: 1913145444}
   m_Layer: 0
-  m_Name: Difficulty
+  m_Name: Dramatic Elements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1911578122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f56cbcd4914b14ebbda3e4dbdfcd3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::DifficultyModulator
-  skillTracker: {fileID: 1911578126}
-  mediumProfile: {fileID: 11400000, guid: d841afbeb34c12e46bfb20ff654c4e9e, type: 2}
-  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
-  scriptedSequenceStarts:
-  - {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
-  scriptedSequenceEnds:
-  - {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
---- !u!114 &1911578123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6d89b29df3df647969ca3b8e71744a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::SkillSignals
-  hope: {fileID: 2100000009}
-  player: {fileID: 2100000005}
-  tracker: {fileID: 1911578126}
-  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
-  openingFinished: {fileID: 11400000, guid: 434fa2875b7cd4eb19e755c72c9574a1, type: 2}
-  levelWon: {fileID: 11400000, guid: fc9053f6d34c35c4d88ca7edb916d634, type: 2}
-  levelLost: {fileID: 11400000, guid: 9bd26525899a7814c8015df10b63a071, type: 2}
-  memoryFound: {fileID: 11400000, guid: 17a49c65c13f3934e9ec656d02c95c4e, type: 2}
-  caught: {fileID: 11400000, guid: 0adb77847a897b74f9b48b0565011a44, type: 2}
-  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
-  stageEnded: {fileID: 11400000, guid: 2ebfdb818124bde44b0d0dfc1ab0917e, type: 2}
-  hopeChanged: {fileID: 11400000, guid: f7a72ab8386fa3a4ab01c3de8efb0f96, type: 2}
-  playerIdle: {fileID: 11400000, guid: 68b83a79936fbdc46b8fc8742b4bf54a, type: 2}
---- !u!114 &1911578124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ea8cc40e588a14689a76f46b43ff14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::DifficultyApplier
-  hope: {fileID: 2100000009}
-  modulator: {fileID: 1911578122}
-  watchers: {fileID: 1538522801}
-  profileLoaded: {fileID: 11400000, guid: db6a61d42d713b844b756037d069a76b, type: 2}
---- !u!114 &1911578125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cbaaf42661c19f46b6cb3822caec881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::DifficultyManager
-  defaultProfile: {fileID: 11400000, guid: d841afbeb34c12e46bfb20ff654c4e9e, type: 2}
-  profileLoaded: {fileID: 11400000, guid: db6a61d42d713b844b756037d069a76b, type: 2}
---- !u!114 &1911578126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f397de5002206cf499126a6ddedf7013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::SkillTracker
-  caught: {fileID: 11400000, guid: 0adb77847a897b74f9b48b0565011a44, type: 2}
-  playerIdle: {fileID: 11400000, guid: 68b83a79936fbdc46b8fc8742b4bf54a, type: 2}
-  digSessionEnded: {fileID: 0}
-  listenActivated: {fileID: 0}
-  hopeChanged: {fileID: 11400000, guid: f7a72ab8386fa3a4ab01c3de8efb0f96, type: 2}
-  quietPlaceEntered: {fileID: 11400000, guid: 5440393106d9bc04fba0b6468d92bbad, type: 2}
-  quietPlaceExited: {fileID: 11400000, guid: cffbfeccc56a4c847b5f4e51ee81727a, type: 2}
-  stageStarted: {fileID: 11400000, guid: 7ab8a725ed31aaa4d827d29d49a303cf, type: 2}
-  stageEnded: {fileID: 11400000, guid: 2ebfdb818124bde44b0d0dfc1ab0917e, type: 2}
---- !u!4 &1911578127
+--- !u!4 &1913145444
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911578121}
+  m_GameObject: {fileID: 1913145443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1147067240}
+  m_Children:
+  - {fileID: 1811596774}
+  - {fileID: 1125569183}
+  - {fileID: 880444330}
+  - {fileID: 1942669035}
+  - {fileID: 160600757}
+  - {fileID: 1505574836}
+  - {fileID: 1303361660}
+  - {fileID: 230511447}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1958144285
+--- !u!1 &1942669029
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35511,101 +35725,118 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1958144288}
-  - component: {fileID: 1958144287}
-  - component: {fileID: 1958144286}
+  - component: {fileID: 1942669035}
+  - component: {fileID: 1942669034}
+  - component: {fileID: 1942669033}
+  - component: {fileID: 1942669032}
+  - component: {fileID: 1942669030}
+  - component: {fileID: 1942669031}
   m_Layer: 0
-  m_Name: Goal Light
+  m_Name: Optional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1958144286
+--- !u!114 &1942669030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958144285}
+  m_GameObject: {fileID: 1942669029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c17611ae765f1524cbe2af2401258ea5, type: 3}
+  m_Script: {fileID: 11500000, guid: 122996405d7b37b4d92926e79ee90591, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::HighlightTarget
-  highlightLight: {fileID: 1958144287}
-  onIntensity: 0.9
-  offIntensity: 0
-  fallbackSprite: {fileID: 0}
-  onAlpha: 1
-  offAlpha: 0.15
-  highlightSting: {fileID: 0}
---- !u!114 &1958144287
+  m_EditorClassIdentifier: LightInTheTunnel::SlowMomentsDirector
+  digActiveEvent: {fileID: 0}
+  digEndedEvent: {fileID: 0}
+  guardCloseEvent: {fileID: 11400000, guid: c33705173707e0b4eae252b2bd44d0f6, type: 2}
+  guardClearEvent: {fileID: 11400000, guid: 2380f6b01da68dc47a0c95be4392e81e, type: 2}
+  scriptedBreakingPointEvent: {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
+  scriptedBreakingPointEndedEvent: {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
+  playerMovement: {fileID: 2100000005}
+  calmSecondsRequired: 3
+--- !u!114 &1942669031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958144285}
+  m_GameObject: {fileID: 1942669029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3424038f84303b54293eb9b4afcc09d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
-  m_ComponentVersion: 3
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 0.62, g: 0.8, b: 1, a: 1}
-  m_Intensity: 0
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 2.4
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &1958144288
+  m_EditorClassIdentifier: LightInTheTunnel::CalmSignals
+  tension: {fileID: 2036353934}
+  settings: {fileID: 11400000, guid: 38a37a9d0f412c147a90ca6d3e4c0e0e, type: 2}
+  closeAtDanger: 0.95
+  clearAtDanger: 0.85
+  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
+  guardClose: {fileID: 11400000, guid: c33705173707e0b4eae252b2bd44d0f6, type: 2}
+  guardClear: {fileID: 11400000, guid: 2380f6b01da68dc47a0c95be4392e81e, type: 2}
+  scriptedBeatStarted: {fileID: 11400000, guid: c4d404ea6090523409106c8468b680f9, type: 2}
+  scriptedBeatEnded: {fileID: 11400000, guid: 956f2f0bb25fb3c4f9e6f2862d98a992, type: 2}
+--- !u!114 &1942669032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942669029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a476ed537e1f349a87f37f965e4ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::RunStateTracker
+  missions: {fileID: 1942669033}
+  memoryFound: {fileID: 11400000, guid: 17a49c65c13f3934e9ec656d02c95c4e, type: 2}
+  playerCaught: {fileID: 11400000, guid: 9531aa4d2f332064c9378b427d376f9e, type: 2}
+--- !u!114 &1942669033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942669029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff0fea01770a5f43a8b5c5b4f23be7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OptionalMissions
+  missions: []
+  optionalRecorded: {fileID: 0}
+--- !u!114 &1942669034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942669029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8023d66a16051604686767e81502a48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OptionalContent
+  registry: {fileID: 11400000, guid: 016487d319c85e9438d684fb20791292, type: 2}
+--- !u!4 &1942669035
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958144285}
+  m_GameObject: {fileID: 1942669029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1122761394}
+  m_Children:
+  - {fileID: 2090454360}
+  - {fileID: 76186309}
+  m_Father: {fileID: 1913145444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961372871
 GameObject:
@@ -36267,135 +36498,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1163268401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2009139003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2009139004}
-  - component: {fileID: 2009139005}
-  m_Layer: 0
-  m_Name: Pulse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2009139004
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009139003}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1144295492}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2009139005
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009139003}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 443e99dbb06d41947ab89667c1da08a2, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &2009902393
 GameObject:
   m_ObjectHideFlags: 0
@@ -36939,6 +37041,80 @@ MonoBehaviour:
   sweepAngle: 60
   turnSeconds: 5
   pauseSeconds: 2.5
+--- !u!1 &2090454359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090454360}
+  - component: {fileID: 2090454362}
+  - component: {fileID: 2090454361}
+  m_Layer: 0
+  m_Name: Door Crack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090454360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090454359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1942669035}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090454361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090454359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1483ba1e926ba8d4ca23c8f33edf9e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightInTheTunnel::OptionalZone
+  entryId: door-crack-look
+  whenRecorded: {fileID: 0}
+  calm: {fileID: 1942669030}
+  thoughtRequested: {fileID: 11400000, guid: c07f8f93dcd6e4645a1309bdddfa7b10, type: 2}
+  thought: 'A line of light under the door. I watch it for a while.
+
+    It doesn''t
+    move. Out there, it is still day.'
+--- !u!65 &2090454362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090454359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2092197423
 GameObject:
   m_ObjectHideFlags: 0
@@ -37016,109 +37192,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 0.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &2093594379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2093594380}
-  - component: {fileID: 2093594382}
-  - component: {fileID: 2093594381}
-  m_Layer: 0
-  m_Name: Options
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2093594380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093594379}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1147067240}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2093594381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093594379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f1f07bc07cd394f878900d3a5b0a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::DevOverlay
-  hope: {fileID: 2100000009}
-  continuousHope: {fileID: 134386725}
-  body: {fileID: 134386724}
-  movementLock: {fileID: 134386723}
-  tracker: {fileID: 1911578126}
-  modulator: {fileID: 1911578122}
-  calm: {fileID: 242710564}
-  attention: {fileID: 1182896400}
-  toggleAction:
-    m_Name: 
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: caf9b7dd-8c79-4e36-bcdf-875ac50a4b4f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1811fb14-8c04-41d1-9072-51f677426c05
-      m_Path: <Keyboard>/f3
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: 
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
---- !u!114 &2093594382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093594379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d1b81c4ae6e9e43b4896c1516e7d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: LightInTheTunnel::OptionsMenu
-  movementLock: {fileID: 134386723}
-  intensityManager: {fileID: 1028176775}
-  toggleAction:
-    m_Name: 
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: b2a9f293-35b4-4d5e-96b6-214b51773f4d
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: f8879126-4f5f-4aa6-b419-c3122feced04
-      m_Path: <Keyboard>/o
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: 
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
 --- !u!1 &2100000001
 GameObject:
   m_ObjectHideFlags: 0
@@ -37164,7 +37237,7 @@ Transform:
   m_Children:
   - {fileID: 2100000012}
   - {fileID: 625726957}
-  - {fileID: 1144295492}
+  - {fileID: 711948676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100000005
@@ -37918,4 +37991,4 @@ SceneRoots:
   - {fileID: 1299579230}
   - {fileID: 1985499971}
   - {fileID: 1315369106}
-  - {fileID: 1147067240}
+  - {fileID: 1913145444}
