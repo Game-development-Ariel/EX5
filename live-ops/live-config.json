@@ -6,7 +6,7 @@
     "hard":   { "startingHope": -1, "hopeLostWhenCaught": -1, "hopeNaturalDecayPerMinute": -1 },
 
     "powerOutage": {
-        "enabled": false,
+        "enabled": true,
         "startUtc": "2026-11-23T00:00:00Z",
         "endUtc": "2026-12-31T23:59:59Z",
         "openingLine": "The lights are out. Their eyes are blind tonight.",
