@@ -47,6 +47,8 @@ public abstract class TutorialSceneTest
         PlayerPrefs.DeleteKey(DifficultyManager.DifficultyPrefsKey); // No saved choice: every test plays on Medium.
         yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Single);
         yield return null;
+        // The scene loaded the accessibility options the player saved on this computer. The tests play with the defaults.
+        AccessibilitySettings.OverrideCurrent(ScriptableObject.CreateInstance<AccessibilitySettings>());
         FindTheParts();
     }
 
