@@ -14,9 +14,9 @@ public class PlayerMovementLockTests
         host.AddComponent<Rigidbody>();
         movement = host.AddComponent<PlayerMovement>();
         lockComponent = host.AddComponent<PlayerMovementLock>();
-        lockComponent.SendMessage("Awake");
+        TestUtils.Call(lockComponent, "Awake");
         lockComponent.enabled = true;
-        lockComponent.SendMessage("OnEnable");
+        TestUtils.Call(lockComponent, "OnEnable");
     }
 
     [TearDown]

@@ -8,8 +8,14 @@ using UnityEngine;
 /// The EndingDirector asks it which missions are completed; nothing else reads from here.
 /// From design 3.3: the missions are quiet - there is no HUD, no check list, no "6/14" count.
 /// </summary>
+[DefaultExecutionOrder(OptionalContent.ExecutionOrder + 1)]
 public class OptionalMissions : MonoBehaviour
 {
+    /// <summary>The registry ids of the optional moments that complete a mission by themselves.</summary>
+    public const string CountWallMarkEntryId = "count-wall-mark";
+    public const string SandbagWriteEntryId = "sandbag-hostage-write";
+    public const string BraceletEntryId = "bracelet-festival";
+
     /// <summary>The OptionalMissions in the active scene. Null before Awake and after the scene unloads.</summary>
     public static OptionalMissions Instance { get; private set; }
 
@@ -41,6 +47,10 @@ public class OptionalMissions : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (missions == null || missions.Length == 0)
+        {
+            missions = OptionalMissionFactory.DefaultSet(); // No assets wired: the six from the design.
+        }
         if (recorder == null && OptionalContent.Instance != null)
         {
             recorder = OptionalContent.Instance;
@@ -120,6 +130,20 @@ public class OptionalMissions : MonoBehaviour
             return;
         }
         state.optionalEntriesRecorded.Add(entryId);
+
+        // Three of the missions are a single optional moment each, so recording it completes them.
+        if (entryId == CountWallMarkEntryId)
+        {
+            state.countWallMarked = true;
+        }
+        else if (entryId == SandbagWriteEntryId)
+        {
+            state.sandbagWritten = true;
+        }
+        else if (entryId == BraceletEntryId)
+        {
+            state.braceletFound = true;
+        }
     }
 
     /// <summary>True if any mission of this kind is in the list and its condition is met.</summary>

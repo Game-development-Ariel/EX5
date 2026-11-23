@@ -6,8 +6,12 @@ using UnityEngine;
 /// they do not need a reference to the manager. Static Instance is kept so the pause menu and the
 /// title screen can reach the same object from code.
 /// </summary>
+[DefaultExecutionOrder(AccessibilityManager.ExecutionOrder)]
 public class AccessibilityManager : MonoBehaviour
 {
+    /// <summary>Runs before the other scripts, so the saved settings are loaded when they wake up.</summary>
+    public const int ExecutionOrder = -100;
+
     [Tooltip("The authored settings asset. Its values are the starting defaults; PlayerPrefs override them on Load")]
     [SerializeField] private AccessibilitySettings settings;
 

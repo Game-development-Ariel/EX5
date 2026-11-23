@@ -86,6 +86,17 @@ public class HighContrastRenderer : MonoBehaviour
         }
     }
 
+    // MoodVolume on the same object writes the exposure in every Update. LateUpdate runs after it,
+    // so the boost stays on the picture instead of being overwritten one frame later.
+    private void LateUpdate()
+    {
+        if (colors != null && AccessibilitySettings.Current.HighContrast)
+        {
+            colors.contrast.value = baseContrast + ContrastBoost;
+            colors.postExposure.value += ExposureBoost;
+        }
+    }
+
     /// <summary>Public so a settings menu can push the state after a direct change without raising the event.</summary>
     public void Refresh()
     {

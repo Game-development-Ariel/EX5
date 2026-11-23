@@ -44,6 +44,16 @@ public class HopeBody : MonoBehaviour
     [Range(0f, 2f)]
     [SerializeField] private float normalPulseGain = 1f;
 
+    [Tooltip("The pulse volume at gain 1, from 0 to 1. The gains above multiply it")]
+    [Range(0f, 1f)]
+    [SerializeField] private float pulseBaseVolume = 0.35f;
+
+    [Tooltip("Breath volume in Faith and Calm (x), Worry (y) and Despair (z), from 0 to 1")]
+    [SerializeField] private Vector3 breathVolumes = new Vector3(0f, 0.25f, 0.45f);
+
+    [Tooltip("Breath pitch in Faith and Calm (x), Worry (y) and Despair (z). 1 = the clip's own speed")]
+    [SerializeField] private Vector3 breathPitches = new Vector3(1f, 1.05f, 1.35f);
+
     [Tooltip("Seconds of hysteresis around every threshold. Prevents flicker between tiers")]
     [Min(0f)]
     [SerializeField] private float hysteresis = 1.5f;
@@ -161,7 +171,13 @@ public class HopeBody : MonoBehaviour
             _ => quietBreathClip,
         };
 
-        if (next == null || breathSource.clip == next)
+        // The same clip can serve more than one tier, so the volume and the speed carry the difference too.
+        bool worried = tier == HopeTier.Worry;
+        bool despairing = tier == HopeTier.Despair;
+        breathSource.volume = despairing ? breathVolumes.z : worried ? breathVolumes.y : breathVolumes.x;
+        breathSource.pitch = despairing ? breathPitches.z : worried ? breathPitches.y : breathPitches.x;
+
+        if (next == null || (breathSource.clip == next && breathSource.isPlaying))
         {
             return;
         }
@@ -178,6 +194,7 @@ public class HopeBody : MonoBehaviour
             return;
         }
 
-        pulseSource.volume = tier == HopeTier.Despair ? despairPulseGain : normalPulseGain;
+        float gain = tier == HopeTier.Despair ? despairPulseGain : normalPulseGain;
+        pulseSource.volume = Mathf.Clamp01(pulseBaseVolume * gain); // An AudioSource's volume stops at 1.
     }
 }

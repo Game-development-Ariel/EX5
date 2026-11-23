@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1df37e874293fd4eb2999099ec6e9f6, type: 3}
+  m_Name: OptionalRegistry
+  m_EditorClassIdentifier: LightInTheTunnel::OptionalRegistry
+  entries:
+  - id: prev-sacks-soft-corner
+    displayName: 'Prev: sacks by the corner, sand soft'
+    kind: 0
+    stageId: 2
+    hopeReward: 0
+  - id: prev-dug-hands-short
+    displayName: 'Prev: I started here. My hands were not enough'
+    kind: 0
+    stageId: 2
+    hopeReward: 0
+  - id: prev-watches-corners
+    displayName: 'Prev: he stops at the corners. At the corners he looks back'
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: wall-count-marks
+    displayName: 'Counting wall: five-by-five scratches'
+    kind: 0
+    stageId: 2
+    hopeReward: 0
+  - id: wall-no-sleep
+    displayName: 'Wall in the corner: ''at home no one sleeps'''
+    kind: 0
+    stageId: 4
+    hopeReward: 0
+  - id: guard-room-watch
+    displayName: 'Guard room: a working clock'
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: guard-room-cups
+    displayName: 'Guard room: tea cups on the table'
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: guard-room-flower
+    displayName: 'Guard room: a dried flower in one of the cups'
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: bracelet-festival
+    displayName: The festival bracelet on the hero's wrist
+    kind: 0
+    stageId: 1
+    hopeReward: 0
+  - id: guards-talk-home
+    displayName: A guard talks about his home and a sick relative
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: radio-families-wait
+    displayName: 'Radio fragment: ''the families are still waiting'''
+    kind: 0
+    stageId: 3
+    hopeReward: 0
+  - id: sandbag-hostage-write
+    displayName: Wrote 'hostage' on the white sandbag
+    kind: 1
+    stageId: 4
+    hopeReward: 0
+  - id: count-wall-mark
+    displayName: Added a line of your own to the counting wall
+    kind: 1
+    stageId: 2
+    hopeReward: 0
+  - id: journal-i-want-to-remember
+    displayName: 'Journal entry: one thing to remember'
+    kind: 1
+    stageId: 3
+    hopeReward: 0
+  - id: flashlight-empty-room
+    displayName: Flashlight on in the empty room
+    kind: 1
+    stageId: 4
+    hopeReward: 0
+  - id: listen-at-distance
+    displayName: 'Listened to the far world: a guard, keys, distant thunder'
+    kind: 2
+    stageId: 3
+    hopeReward: 0
+  - id: prayer-spot-sit
+    displayName: Sat at the prayer spot. Breath calmed
+    kind: 2
+    stageId: 3
+    hopeReward: 0
+  - id: door-crack-look
+    displayName: Watched the crack of light under the door
+    kind: 2
+    stageId: 1
+    hopeReward: 0
+  - id: journal-reread-shabbat
+    displayName: Re-read the Shabbat journal page
+    kind: 2
+    stageId: 3
+    hopeReward: 0

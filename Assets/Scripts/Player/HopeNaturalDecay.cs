@@ -12,6 +12,8 @@ using UnityEngine;
 [RequireComponent(typeof(ContinuousHope))]
 public class HopeNaturalDecay : MonoBehaviour
 {
+    private const float SecondsPerMinute = 60f;
+
     [Tooltip("Rate in hope points per minute when no difficulty profile is active")]
     [Min(0f)]
     [SerializeField] private float defaultRatePerMinute = 2f;
@@ -20,15 +22,23 @@ public class HopeNaturalDecay : MonoBehaviour
     [SerializeField] private string difficultyParameterName = "HopeNaturalDecayPerMinute";
 
     private ContinuousHope hope;
+    private PlayerMovementLock movementLock;
 
     private void Awake()
     {
         hope = GetComponent<ContinuousHope>();
+        movementLock = GetComponent<PlayerMovementLock>(); // Optional.
     }
 
     private void Update()
     {
         if (!enabled)
+        {
+            return;
+        }
+
+        // Time the player can't act in (the opening, the dark after a capture, a menu) doesn't cost hope.
+        if (movementLock != null && !movementLock.IsFree)
         {
             return;
         }
@@ -39,7 +49,7 @@ public class HopeNaturalDecay : MonoBehaviour
             return;
         }
 
-        float perSecond = perMinute / 60f;
+        float perSecond = perMinute / SecondsPerMinute;
         hope.Lose(perSecond * Time.deltaTime);
     }
 

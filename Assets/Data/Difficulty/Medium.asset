@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed4369487c265746b278df245d9664d, type: 3}
+  m_Name: Medium
+  m_EditorClassIdentifier: LightInTheTunnel::DifficultyProfile
+  difficulty: 1
+  guardCheckMinSeconds: 45
+  guardCheckMaxSeconds: 60
+  guardPatrolCycleSeconds: 14
+  guardSecondPatrolCycleSeconds: 14
+  stage2GuardCount: 2
+  randomListenPauseEnabled: 0
+  randomListenPauseProbability: 1
+  randomListenPauseDurationSeconds: 0.5
+  randomListenPauseIntervalMinSeconds: 20
+  randomListenPauseIntervalMaxSeconds: 30
+  cameraConeDegrees: 60
+  cameraCount: 5
+  rotatingCameraEnabled: 0
+  rotatingCameraPeriodSeconds: 8
+  startingHope: 50
+  hopeLostWhenCaught: 10
+  hopeNaturalDecayPerMinute: 2
+  memoryHopeValue: 15
+  digMetersPerSecond: 0.15
+  digNoiseCorridors: 2
+  hasContinuousDigThreshold: 0
+  continuousDigThresholdSeconds: 20
+  batterySeconds: 65
+  journalHintsEnabled: 0
+  journalHintCapturesRequired: 2

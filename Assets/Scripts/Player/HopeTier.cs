@@ -5,14 +5,14 @@
 public enum HopeTier
 {
     /// <summary>75 and above — "אמונה". Fast, sharp sight, quiet breath.</summary>
-    Faith = 0,
+    Faith,
 
     /// <summary>40 to 75 — "רגוע". Normal body, quiet breath.</summary>
-    Calm = 1,
+    Calm,
 
     /// <summary>25 to 40 — "חשש". Slower, shorter sight, audible breath.</summary>
-    Worry = 2,
+    Worry,
 
     /// <summary>Below 25 — "ייאוש". Very slow, tunnel vision, fast breath, pulse masks footsteps.</summary>
-    Despair = 3,
+    Despair,
 }

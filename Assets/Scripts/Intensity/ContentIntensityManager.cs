@@ -6,8 +6,12 @@ using UnityEngine;
 /// static Current. The PlayerPrefs key is "LitT.Intensity" (the mode), and two neighbors next to it
 /// keep the skip-opening and content-warning-shown flags.
 /// </summary>
+[DefaultExecutionOrder(ContentIntensityManager.ExecutionOrder)]
 public class ContentIntensityManager : MonoBehaviour
 {
+    /// <summary>Runs before the other scripts, so Current is loaded when the warning screen wakes up.</summary>
+    public const int ExecutionOrder = -100;
+
     /// <summary>The PlayerPrefs key for the chosen intensity mode (stored as an int).</summary>
     public const string ModeKey = "LitT.Intensity";
 

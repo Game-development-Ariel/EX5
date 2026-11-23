@@ -10,6 +10,9 @@ using UnityEngine.Rendering.Universal;
 /// </summary>
 public static class ReducedFlashing
 {
+    // The shortest fade, in seconds. A fade of zero seconds would be a flash again.
+    private const float ShortestFadeSeconds = 0.01f;
+
     /// <summary>Length of the soft fade that replaces a flash.</summary>
     public const float FadeSeconds = 0.3f;
 
@@ -52,7 +55,7 @@ public static class ReducedFlashing
             light.intensity = intensity;
             return;
         }
-        host.StartCoroutine(FadeTo(light, targetColor, intensity, Mathf.Max(0.01f, seconds)));
+        host.StartCoroutine(FadeTo(light, targetColor, intensity, Mathf.Max(ShortestFadeSeconds, seconds)));
     }
 
     private static IEnumerator FadeTo(Light2D light, Color targetColor, float intensity, float seconds)

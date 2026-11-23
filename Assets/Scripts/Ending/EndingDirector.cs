@@ -59,6 +59,12 @@ public class EndingDirector : MonoBehaviour
 
     private OptionalMissions missions;
 
+    /// <summary>Raised with a beat's subtitle when the beat starts. The presenter shows it.</summary>
+    public SubtitleEvent SubtitleShown => subtitleShown;
+
+    /// <summary>Raised with each bonus line the completed missions earned, in the narrator's finale.</summary>
+    public SubtitleEvent BonusNarrationPlayed => bonusNarrationPlayed;
+
     /// <summary>The missions this director reads. Falls back to OptionalMissions.Instance.</summary>
     public OptionalMissions Missions
     {

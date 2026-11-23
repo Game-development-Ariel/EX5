@@ -6,13 +6,23 @@ using UnityEngine;
 /// every other system reads one source of truth, and raises the DifficultyProfileLoaded event so systems
 /// that need to initialize themselves (reset counters, pick cameras) can listen.
 /// </summary>
+[DefaultExecutionOrder(DifficultyManager.ExecutionOrder)]
 public class DifficultyManager : MonoBehaviour
 {
+    /// <summary>Runs before the other scripts, so Current is ready when they wake up.</summary>
+    public const int ExecutionOrder = -100;
+
+    // The tutorial's memories were tuned around this value. A profile with another value scales them.
+    private const float BaselineMemoryHope = 15f;
+
     /// <summary>The PlayerPrefs key used by the main menu to remember the player's choice.</summary>
     public const string DifficultyPrefsKey = "LitT.Difficulty";
 
     [Tooltip("Used only when PlayerPrefs has no saved choice. Set in the Inspector to the Medium asset")]
     [SerializeField] private DifficultyProfile defaultProfile;
+
+    [Tooltip("The live config. Its numbers replace the profile's when the player picks a level. Optional")]
+    [SerializeField] private LiveConfigLoader liveConfig;
 
     [Tooltip("Raised after Current is set, so listeners can read the profile and initialize themselves")]
     [SerializeField] private GameEvent profileLoaded;
@@ -32,6 +42,32 @@ public class DifficultyManager : MonoBehaviour
     private void Start()
     {
         profileLoaded?.Raise();
+    }
+
+    /// <summary>
+    /// Called by the start menu when the player picks a level. Saves the choice, loads its profile
+    /// and raises profileLoaded again, so every listener starts over with the new numbers.
+    /// </summary>
+    public void Choose(Difficulty difficulty)
+    {
+        PlayerPrefs.SetString(DifficultyPrefsKey, difficulty.ToString());
+        PlayerPrefs.Save();
+        CurrentAsset = LoadProfile();
+        Current = CurrentAsset;
+        profileLoaded?.Raise();
+    }
+
+    /// <summary>
+    /// The hope a memory gives under the current difficulty. Each memory keeps its own tuned value,
+    /// and the profile's MemoryHopeValue scales it (15 is the baseline, so Hard's 10 gives two thirds).
+    /// </summary>
+    public static int ScaleMemoryHope(int tunedValue)
+    {
+        if (Current == null)
+        {
+            return tunedValue;
+        }
+        return Mathf.RoundToInt(tunedValue * Current.MemoryHopeValue / BaselineMemoryHope);
     }
 
     /// <summary>Lets the modulator or a test swap the exposed profile for a wrapped version.</summary>
@@ -59,6 +95,20 @@ public class DifficultyManager : MonoBehaviour
     }
 
     private DifficultyProfile LoadProfile()
+    {
+        DifficultyProfile profile = BuiltInProfile();
+        if (liveConfig == null)
+        {
+            return profile;
+        }
+
+        // A copy, so the live numbers never get written into the asset on disk.
+        profile = Instantiate(profile);
+        profile.UseLiveNumbers(liveConfig.Config.NumbersFor(profile.Difficulty));
+        return profile;
+    }
+
+    private DifficultyProfile BuiltInProfile()
     {
         string saved = PlayerPrefs.GetString(DifficultyPrefsKey, string.Empty);
         if (saved == Difficulty.Easy.ToString())
