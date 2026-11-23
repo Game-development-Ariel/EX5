@@ -5,7 +5,7 @@
 מאגר של מטלה 5 בקורס פיתוח משחקי מחשב (5787) באוניברסיטת אריאל. המטלה היא על רכיבים דרמטיים של המשחק "אור במנהרה" (Light in the Tunnel), בעשרה נושאים: אתגר, זרימה, שעשוע, רגשות, סיפור רקע, דמויות, עלילה, בניית עולם, מטא-משחק וניהול חי.
 
 * מסמך העיצוב, עשרת הנושאים: [dramatic-elements.md](dramatic-elements.md)
-* העלילה כסיפור אינטראקטיבי בטוויין: [twine/](twine/)
+* **לשחק:** המשחק באיץ' [game-dev-ariel.itch.io/ex5-light-in-the-tunnel](https://game-dev-ariel.itch.io/ex5-light-in-the-tunnel), והסיפור בטוויין [בדפדפן](https://game-development-ariel.github.io/EX5/twine/light-in-the-tunnel.html)
 * ניהול חי (Live Ops): [live-ops/README.md](live-ops/README.md)
 * המשחק עצמו נמצא כאן, בשורש המאגר: פרויקט Unity של שלב הלימוד ממטלה 4, שהרכיבים הדרמטיים מחוברים אליו ועובדים בו.
 
@@ -170,7 +170,10 @@
 
 ## קישורים
 
-* המשחק באיץ' (הגרסה של מטלה 4, לפני הרכיבים הדרמטיים; אפשר לשחק בדפדפן): [game-dev-ariel.itch.io/ex4-light-in-the-tunnel](https://game-dev-ariel.itch.io/ex4-light-in-the-tunnel)
+* **המשחק של מטלה 5 באיץ'** (שלב הלימוד עם הרכיבים הדרמטיים והאירוע החי; משחקים בדפדפן): [game-dev-ariel.itch.io/ex5-light-in-the-tunnel](https://game-dev-ariel.itch.io/ex5-light-in-the-tunnel)
+* **הסיפור בטוויין בדפדפן:** [game-development-ariel.github.io/EX5/twine/light-in-the-tunnel.html](https://game-development-ariel.github.io/EX5/twine/light-in-the-tunnel.html). הקובץ עצמו: [twine/light-in-the-tunnel.html](twine/light-in-the-tunnel.html), ומקור הטקסט: [twine/light-in-the-tunnel.twee](twine/light-in-the-tunnel.twee)
+* **מסמך העיצוב:** [dramatic-elements.md](dramatic-elements.md)
+* הגרסה של מטלה 4, לפני הרכיבים הדרמטיים: [game-dev-ariel.itch.io/ex4-light-in-the-tunnel](https://game-dev-ariel.itch.io/ex4-light-in-the-tunnel)
 
 ## איך מריצים
 
