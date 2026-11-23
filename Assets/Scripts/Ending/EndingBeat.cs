@@ -7,7 +7,8 @@ using UnityEngine.Events;
 /// spawned, a narrator clip plays, an ambient clip plays, a subtitle is shown (in Hebrew or
 /// English, picked at run time), and an optional UnityEvent fires - that is where the ending
 /// director hooks the per-mission tweaks like "render constellations" or "sandbag on the news".
-/// From design 4.1: stars, capture, chair week, long count 141 to 738, release, narrator finale.
+/// From an early draft of the ending: stars, capture, chair week, long count 141 to 738, release, narrator finale.
+/// The design doc (topic 7) is now the source; only the tests build this full sequence.
 /// </summary>
 [Serializable]
 public class EndingBeat

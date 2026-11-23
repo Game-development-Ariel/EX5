@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Builds a DifficultyProfile instance for each preset. The numbers started from section 1.2 of the design document;
-/// where the prototype still differs from it (battery, digging, patrol), the README lists the gap.
+/// where the prototype still differs from it (for example battery, digging and patrol), the README lists the gap.
 /// The game ships three assets built from this factory. Tests call the same factory, so a drift between
 /// code and spec surfaces in the DifficultyProfileFactoryTests.
 /// </summary>
@@ -13,7 +13,7 @@ public static class DifficultyProfileFactory
     private const float NoHopeDecay = 0f;
 
     // Easy ("Day One"): wider windows, more hope.
-    // Seconds between random cell checks: 70..90 (double the default on the low end).
+    // Seconds between random cell checks: 70..90 (about one and a half times the default, as in section 1.2).
     private const float EasyGuardCheckMin = 70f;
     private const float EasyGuardCheckMax = 90f;
     // One patrol loop runs 20 seconds on Easy.

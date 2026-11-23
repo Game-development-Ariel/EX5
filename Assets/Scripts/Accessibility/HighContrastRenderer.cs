@@ -12,7 +12,8 @@ using UnityEngine.Rendering.Universal;
 [RequireComponent(typeof(Volume))]
 public class HighContrastRenderer : MonoBehaviour
 {
-    // Added to the scene's color grading when high contrast is on: contrast points, exposure stops, and a multiplier for the light intensities.
+    // When high contrast is on: contrast points and exposure stops added to the color grading,
+    // and a multiplier for the glow of the HighlightTarget objects only.
     private const float ContrastBoost = 40f;
     private const float ExposureBoost = 0.5f;
     private const float HighlightBoost = 1.35f;
