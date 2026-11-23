@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Crimson Text
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b97cf645fda44310b7ddb3bcd6d07757, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
