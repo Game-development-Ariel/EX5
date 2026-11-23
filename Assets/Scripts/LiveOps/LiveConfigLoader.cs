@@ -44,7 +44,8 @@ public class LiveConfigLoader : MonoBehaviour
             yield break;
         }
 
-        // GitHub and the browser keep old copies of the file. A different address every time gets the newest one.
+        // A different address every time skips the browser's old copy. GitHub's own servers may still send
+        // a copy up to five minutes old, so a change in the file reaches the players within five minutes.
         string freshUrl = url + "?t=" + DateTime.UtcNow.Ticks;
 
         using (UnityWebRequest request = UnityWebRequest.Get(freshUrl))

@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21748aaaf19a5414690c2320de12565b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightInTheTunnel::HopeNaturalDecay
-  defaultRatePerMinute: 2
+  defaultRatePerMinute: 0
   difficultyParameterName: HopeNaturalDecayPerMinute
 --- !u!1 &160600756
 GameObject:
