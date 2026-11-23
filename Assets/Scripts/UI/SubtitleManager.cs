@@ -12,12 +12,13 @@ using UnityEngine.UI;
 /// </summary>
 public class SubtitleManager : MonoBehaviour
 {
-    // Above everything in the level, the end screen (60) too, so the narrator's last lines are read over it.
+    // Above everything in the level, the end screen (60) too, so the closing lines are read over it.
     private const int CanvasSortingOrder = 65;
 
     // The dark band behind the words: black, a bit more than half opaque, so the level still shows through.
     private static readonly Color BandColor = new Color(0f, 0f, 0f, 0.55f);
 
+    // At most two lines wait in line (older ones are dropped), in a readable size, each fading in and out in a quarter second.
     private const int MaxQueueLength = 2;
     private const int FontSize = 28;
     private const float FadeSeconds = 0.25f;

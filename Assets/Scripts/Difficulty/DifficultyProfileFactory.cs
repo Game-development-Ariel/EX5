@@ -1,7 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// Builds a DifficultyProfile instance for each preset, with the numbers from the design document's section 1.2.
+/// Builds a DifficultyProfile instance for each preset. The numbers started from section 1.2 of the design document;
+/// where the prototype still differs from it (battery, digging, patrol), the README lists the gap.
 /// The game ships three assets built from this factory. Tests call the same factory, so a drift between
 /// code and spec surfaces in the DifficultyProfileFactoryTests.
 /// </summary>

@@ -9,11 +9,13 @@ using UnityEngine.UI;
 /// </summary>
 public class MemoryCaption : MonoBehaviour
 {
+    // Above the HUD (10) and the hints (20), below the end screen (60).
     private const int CanvasSortingOrder = 30;
 
     // The memory is written in the upper middle of the screen, in UI pixels.
     private static readonly Vector2 TextSize = new Vector2(1300f, 200f);
     private static readonly Vector2 TextOffset = new Vector2(0f, 170f);
+    // Larger than the hints, so a memory reads as a moment and not as an instruction.
     private const int FontSize = 46;
 
     [SerializeField] private TextEvent memoryFound;

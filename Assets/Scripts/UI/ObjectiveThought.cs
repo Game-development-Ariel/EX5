@@ -8,11 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class ObjectiveThought : MonoBehaviour
 {
+    // Same layer as the HUD, since the thought sits under the hope bar.
     private const int CanvasSortingOrder = 10;
 
     // The line under the hope bar, in UI pixels from the top-left corner of the screen. Down is minus.
     private static readonly Vector2 ThoughtSize = new Vector2(900f, 50f);
     private static readonly Vector2 ThoughtPosition = new Vector2(40f, -112f);
+    // A bit smaller than the hints, so it stays in the corner of the eye.
     private const int ThoughtFontSize = 32;
 
     [Tooltip("For the time the hero is held after being caught. The new goal is written when he can move again")]

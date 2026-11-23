@@ -7,16 +7,17 @@ using UnityEngine;
 /// footsteps in Despair, and the broadcast of a tier change so <see cref="HopeSenses"/> and
 /// other listeners stay in sync without each of them owning its own thresholds.
 ///
-/// Thresholds come from section 2.2 of the dramatic-elements doc:
+/// Thresholds come from the earlier version of section 2.2 of the dramatic-elements doc (it now says 50, not 40):
 /// Faith &gt;= 75, Calm 40..75, Worry 25..40, Despair &lt; 25.
 ///
-/// This script reads the decimal <see cref="ContinuousHope"/> when present (so slow decay is
-/// felt) and falls back to the integer <see cref="Hope"/> otherwise, so it works whether or not
+/// This script reads the decimal <see cref="ContinuousHope"/> when present (so gradual
+/// changes are felt) and falls back to the integer <see cref="Hope"/> otherwise, so it works whether or not
 /// the continuous layer is wired on this prefab.
 /// </summary>
 [RequireComponent(typeof(Hope))]
 public class HopeBody : MonoBehaviour
 {
+    // The lower edge of each tier (see the summary above). Below WorryThreshold is despair.
     public const float FaithThreshold = 75f;
     public const float CalmThreshold = 40f;
     public const float WorryThreshold = 25f;

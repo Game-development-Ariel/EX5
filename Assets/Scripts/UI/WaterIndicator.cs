@@ -6,6 +6,7 @@ using UnityEngine.UI;
 /// </summary>
 public class WaterIndicator : MonoBehaviour
 {
+    // Same layer as the HUD, since the drop sits at the end of the hope bar.
     private const int CanvasSortingOrder = 10;
 
     // The drop at the end of the hope bar, in UI pixels from the top-left corner of the screen. Down is minus.

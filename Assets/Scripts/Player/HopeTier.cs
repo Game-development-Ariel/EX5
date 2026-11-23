@@ -1,5 +1,5 @@
 /// <summary>
-/// The four tiers of hope described in section 2.2 of the dramatic-elements design doc.
+/// The four tiers of hope, from the earlier version of section 2.2 of the dramatic-elements design doc (the README lists the gap).
 /// Each tier maps to a different body state: speed, sight, hearing, breathing and pulse.
 /// </summary>
 public enum HopeTier
