@@ -48,6 +48,9 @@ public abstract class PlayModeTest
         volumeBefore = AudioListener.volume;
         AudioListener.volume = 0f; // Silent: the tests check what plays, not the speakers.
         Make("Listener").AddComponent<AudioListener>(); // Unity logs a warning when sounds play with no listener.
+        // Fresh accessibility settings (everything at its default), so the options the player saved on this computer,
+        // like "no screen shake", never change what a test checks.
+        AccessibilitySettings.OverrideCurrent(Track(ScriptableObject.CreateInstance<AccessibilitySettings>()));
         yield return null;
     }
 
