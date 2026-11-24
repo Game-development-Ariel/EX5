@@ -17,6 +17,7 @@ public class VisualCueOverlay : MonoBehaviour
     // Distance from the screen centre to the chevron, as a fraction of the shorter screen side.
     private const float EdgeRadius = 0.38f;
 
+    // A chevron fades out in FadeSeconds. Its size in UI pixels grows from Min to Max as the sound gets louder.
     private const float FadeSeconds = 0.8f;
     private const float MinChevronSize = 32f;
     private const float MaxChevronSize = 72f;
@@ -29,6 +30,7 @@ public class VisualCueOverlay : MonoBehaviour
 
     // The small word under an arrow, in UI pixels.
     private static readonly Vector2 LabelSize = new Vector2(140f, 32f);
+    // Small, since the label only names the sound under the chevron.
     private const int LabelFontSize = 20;
 
     [Tooltip("The event the overlay listens to. Same asset as the emitters")]

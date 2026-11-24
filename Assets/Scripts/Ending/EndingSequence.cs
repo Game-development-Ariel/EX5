@@ -5,7 +5,8 @@ using UnityEngine;
 /// The ordered list of ending beats, saved as an asset so designers can swap or reorder them
 /// without opening the director. The director plays the list top to bottom. A separate asset
 /// per ending variant would let two sequences live side-by-side; today the game ships one.
-/// From design 4.1 (the long arc): stars, capture, chair week, day count 141-738, release, narrator finale.
+/// From an early draft of the ending (the long arc): stars, capture, chair week, day count 141-738, release, narrator finale.
+/// The design doc (topic 7) is now the source; only the tests build this full sequence.
 /// </summary>
 [CreateAssetMenu(menuName = "Tunnel/Ending Sequence")]
 public class EndingSequence : ScriptableObject
@@ -62,7 +63,7 @@ public class EndingSequence : ScriptableObject
     }
 
     /// <summary>
-    /// Convenience: builds the default ending from the long arc in design 4.1.
+    /// Convenience: builds the default ending from the long arc of the early draft.
     /// The named beats are the keys the EndingDirector switches on; the strings are the
     /// Hebrew and English subtitles agreed with the writers in the end-credits file.
     /// </summary>

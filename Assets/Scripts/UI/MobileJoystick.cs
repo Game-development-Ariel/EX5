@@ -11,6 +11,7 @@ using UnityEngine.UI;
 /// </summary>
 public class MobileJoystick : MonoBehaviour
 {
+    // Above the HUD (10), below the hints (20). Sizes and the margin from the bottom-left corner are in UI pixels.
     private const int CanvasSortingOrder = 15;
     private const float RingSize = 300f;
     private const float KnobSize = 130f;

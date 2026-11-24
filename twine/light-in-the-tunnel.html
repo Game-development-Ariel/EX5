@@ -23,11 +23,11 @@ tw-link, .enchantment-link {
 }
 tw-link:hover, .enchantment-link:hover {
   color: #E0409A;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="מד התקווה" tags="footer" position="25,25" size="100,100">(if: $showHope is true)[
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="מד התקווה" tags="footer" position="25,25" size="100,100">|bar&gt;[(if: $showHope is true)[
 ----
 &#39;&#39;התקווה: $hope&#39;&#39;  ·  &#39;&#39;נתפס: $caught&#39;&#39;
-]</tw-passagedata><tw-passagedata pid="2" name="אזהרה" tags="" position="150,25" size="100,100">(set: $hope to 15)(set: $caught to 0)(set: $wroteHostage to false)(set: $meters to 0)(set: $showHope to false)(set: $laughed to false)(set: $daysPassed to 0)(set: $stageStartHope to 30)(set: $trayToday to false)(set: $sawSack to false)
-&#39;&#39;המשחק עוסק בשבי ובאלימות. הפתיחה כוללת צלילים של התקפה, ובמשחק יש צלילים של מכות.&#39;&#39;
+]]</tw-passagedata><tw-passagedata pid="2" name="אזהרה" tags="" position="150,25" size="100,100">(set: $hope to 15)(set: $caught to 0)(set: $wroteHostage to false)(set: $meters to 0)(set: $showHope to false)(set: $laughed to false)(set: $daysPassed to 0)(set: $stageStartHope to 30)(set: $trayToday to false)(set: $sawSack to false)
+&#39;&#39;המשחק עוסק בשבי ובאלימות. הפתיחה כוללת תיאור של התקפה, ובסיפור יש תיאורים של מכות.&#39;&#39;
 
 הוא בדיוני, בהשראת עדויות של חטופים מ-7 באוקטובר. הגיבור מספר אותו בעצמו.
 
@@ -54,7 +54,7 @@ tw-link:hover, .enchantment-link:hover {
 
 אני מתעורר על מזרן דק, על רצפת בטון. האוויר לח וכבד. הרגל שלי קשורה בחבל לטבעת בקיר. החבל מגיע עד המזרן, עד הקיר ועד הדלת, אבל לא יותר.
 
-מעבר לדלת יש צעדים, מתקרבים ומתרחקים. ואז הם צוחקים. אני לא מבין מה הם אומרים, אבל אני יודע שזה עליי.
+מעבר לדלת יש צעדים, מתקרבים ומתרחקים. ואז השומרים צוחקים. אני לא מבין מה הם אומרים, אבל אני יודע שזה עליי.
 
 (set: $hope to 10)//הצחוק מאחורי הדלת מוריד את התקווה ל-10.//
 
@@ -70,7 +70,7 @@ tw-link:hover, .enchantment-link:hover {
 
 החבל מספיק ארוך כדי להגיע למגש.
 
-(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 15)
+(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 15)(rerun: ?bar)
 המים מלוחים. אני שותה הכול בכל זאת.
 
 //האוכל הראשון מעלה את התקווה ל-15.//
@@ -79,7 +79,7 @@ tw-link:hover, .enchantment-link:hover {
 
 המגש מגיע שוב. חצי פיתה, מים מלוחים.
 
-(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 20)
+(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 20)(rerun: ?bar)
 הגרון שלי עדיין שורף, אבל אני אוכל הכול.
 
 //האוכל מעלה את התקווה ל-20.//
@@ -94,7 +94,7 @@ tw-link:hover, .enchantment-link:hover {
 
 המגש מגיע.
 
-(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 25)
+(link: &quot;לאכול ולשתות&quot;)[(set: $hope to 25)(rerun: ?bar)
 //האוכל מעלה את התקווה ל-25.//
 
 אחרי זה שומר עובר במסדרון, ואני שוכב בשקט ומקשיב.
@@ -115,7 +115,7 @@ tw-link:hover, .enchantment-link:hover {
 
 &quot;אם אני לא זז היום, אני לא אזוז אף פעם.&quot;
 
-(link: &quot;להסתכל על הצמיד&quot;)[(set: $hope to 30)
+(link: &quot;להסתכל על הצמיד&quot;)[(set: $hope to 30)(rerun: ?bar)
 אני מסתכל על הצמיד מהפסטיבל. לרגע הוא נצבע שוב בצבעים של המסיבה. יש עוד עולם בחוץ.
 
 //המבט בצמיד מעלה את התקווה ל-30.//
@@ -146,7 +146,7 @@ tw-link:hover, .enchantment-link:hover {
 
 המכות באות מהר. אני לא רואה כלום, רק שומע.
 
-אני מתעורר על המזרן. הבקבוק חזר למגש במסדרון. החבל עדיין פתוח, והיומן עדיין אצלי.
+אני מתעורר על המזרן. הבקבוק חזר למגש במסדרון. הקשר עדיין פתוח, והיומן עדיין אצלי.
 
 //כשנתפסים, התקווה יורדת ב-10. בשלב הזה היא לא יורדת מתחת ל-25.//
 
@@ -345,7 +345,7 @@ tw-link:hover, .enchantment-link:hover {
 
 מאחורי השק אני מוצא חור. מישהו כבר התחיל לחפור כאן, לפניי.
 
-(set: $meters to 3)(set: $hope to it + 9)אני חופר שלושה מטרים. בכל מטר האדמה משנה צבע: חול, ואחריו חום לח.
+(set: $meters to 3)(set: $hope to it + 9)אני חופר שלושה מטרים. בכל מטר האדמה משנה צבע: חול, ואחריו אדמה חומה ולחה.
 
 //כל מטר שנחפר מעלה את התקווה ב-3.//
 
@@ -397,7 +397,7 @@ tw-link:hover, .enchantment-link:hover {
 [[לצאת שוב-&gt;שלב 4 החפירה]]</tw-passagedata><tw-passagedata pid="41" name="השק" tags="" position="25,525" size="100,100">(set: $wroteHostage to true)
 אני כותב על השק הלבן באותיות גדולות: &#39;&#39;חטוף&#39;&#39;.
 
-אם אני לא אגיע, לפחות השק יגיע.
+אם לא אגיע, לפחות השק יגיע.
 
 (if: (random: 1, 2) is 1)[אני מספיק לחזור למזרן לפני הבדיקה.
 

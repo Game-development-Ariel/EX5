@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class ButtonFeel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    // The button's size when the mouse is over it and while it is pressed, relative to its normal size.
     private const float HoverScale = 1.04f;
     private const float PressedScale = 0.97f;
 

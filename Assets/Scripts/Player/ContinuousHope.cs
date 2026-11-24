@@ -13,6 +13,7 @@ using UnityEngine;
 [RequireComponent(typeof(Hope))]
 public class ContinuousHope : MonoBehaviour
 {
+    // Hope runs from 0 to FullScale. A change smaller than Epsilon is not reported, so listeners don't get noise.
     public const float FullScale = 100f;
     public const float Epsilon = 0.001f;
 

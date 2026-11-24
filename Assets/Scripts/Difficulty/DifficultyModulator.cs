@@ -12,8 +12,7 @@ using UnityEngine;
 /// </summary>
 public class DifficultyModulator : MonoBehaviour
 {
-    // The modulator ticks every 30 seconds, and the first 30 seconds are quiet to let the player settle in.
-    private const float ModulationTickSeconds = 30f;
+    // DifficultyApplier calls Tick every 30 seconds. The first 30 seconds of a stage are quiet, to let the player settle in.
     private const float StageWarmupSeconds = 30f;
 
     // Thresholds between modes, from section 1.3.

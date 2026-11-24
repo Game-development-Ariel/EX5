@@ -10,7 +10,7 @@ using UnityEngine.Events;
 /// respects the content intensity (Implied skips the chair-week beat, Direct plays it).
 /// From design 3.3: the component reads OptionalMissions and ContentIntensity and composes
 /// the right ending; the player never sees a checklist.
-/// From design 4.1: the long arc from stars to release and the narrator finale.
+/// From an early draft: the long arc from stars to release and the narrator finale (the design doc, topic 7, is now the source).
 /// </summary>
 public class EndingDirector : MonoBehaviour
 {
